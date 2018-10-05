@@ -60,8 +60,6 @@ class ConnectedForm extends Component {
     }
 
     render() {
-
-        const { title } = this.state;
         
         return (
             <form onSubmit={this.handleSubmit} id='edit-form'>

@@ -3,9 +3,6 @@
 // 1- the action (info about what happened)
 // 2- copy of current state
 
-
-import React from 'react';
-
 function logs(state=[], action) {
 
     console.log('inside logs', state, action)

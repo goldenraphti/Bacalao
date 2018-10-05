@@ -1,3 +1,4 @@
+
 function modifyQuantity(state=[], action) {
     
     switch(action.type) {
@@ -9,15 +10,18 @@ function modifyQuantity(state=[], action) {
             console.log('adding items to the inventory', state, action);
 
             const i = state.findIndex( stateItem =>  stateItem.id === action.id);
+            const sizeName= Object.keys(action.sizeQuantityChange)[0];
+            const newAmountAfterSubstraction = state[i].size[sizeName] - Object.values(action.sizeQuantityChange)[0];
             console.log(state[i].size, action.sizeQuantityChange)
-            const newStateItem = Object.assign(state[i].size, action.sizeQuantityChange);
-            console.log(state[i], action.sizeQuantityChange);
+            console.log( 'preparing substraction' , 'sizeName', Object.keys(action.sizeQuantityChange)[0], 'old amount: ', state[i].size[Object.keys(action.sizeQuantityChange)[0]], 'new amount: ', Object.values(action.sizeQuantityChange)[0] );
+            console.log('new amount', newAmountAfterSubstraction);
+            const newItemModified = {...state[i], size : {...state[i].size, [sizeName]: newAmountAfterSubstraction} }
             // finds the corresponding item and then adds the quantity of the action to the key(size) of the action
-            
+
             return [
                 ...state.slice(0,i), // before the one we are updating
-                newStateItem,
-                ...state.slice(i+1) // after the one we are updating
+                newItemModified,
+                ...state.slice(i+1) // after the one we are updating]
             ]
 
         default:
@@ -26,12 +30,4 @@ function modifyQuantity(state=[], action) {
     
 }
 
-function inventory(state=[], action) {
-    console.log('inside inventory' , state, action);
-    modifyQuantity(state, action);
-
-    return state;
-
-}
-
-export default inventory;
+export default modifyQuantity;
