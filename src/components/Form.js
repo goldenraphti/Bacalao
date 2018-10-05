@@ -1,13 +1,12 @@
 // src/js/components/Form.js
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { addArticle, addItems, removeItems, logChange } from "../actions/actionCreators";
+import {  addItems, removeItems, logChange } from "../actions/actionCreators";
 import '../styles/Form.css';
 import store from "../store";
 
 const mapDispatchToProps = dispatch => {
     return {
-        addArticle: article => dispatch(addArticle(article)),
         addItems: (id , sizeQuantityChange) => dispatch(addItems(id , sizeQuantityChange)),
         removeItems: (id , sizeQuantityChange) => dispatch(removeItems(id , sizeQuantityChange)),
         logChange: (date, user, comments, id, sizeQuantityChange) => dispatch(logChange(date, user, comments, id, sizeQuantityChange))

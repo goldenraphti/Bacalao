@@ -29,8 +29,3 @@ export function removeItems(id , sizeQuantityChange) {
         sizeQuantityChange
     }
 }
-
-export const addArticle = article => ({
-    type: 'ADD_ARTICLE',
-    payload: article
-});

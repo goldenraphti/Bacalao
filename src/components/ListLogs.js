@@ -16,6 +16,7 @@ const ConnectedListLogs = ({ logs }) => (
                 Date: {el.date}
                 <br/>User: {el.user}
                 <br/>Comments: {el.comments}
+                <br/>Item ID: {el.id}
                 <br/><h4>Quantities:</h4>
                 <ul className="list-size-logs">
                     {Object.keys(el.sizeQuantityChange).map( sizeLogKey => (
