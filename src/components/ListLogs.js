@@ -8,7 +8,7 @@ const mapStateToProps = state => {
 };
 
 const ConnectedListLogs = ({ logs }) => (
-    <div id="logs-div">
+    <div id="logs-div" className="card card-shadow">
         <h3>Logs</h3>
         <div className="single-log block">
         {logs.map(el => (

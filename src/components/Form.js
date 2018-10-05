@@ -61,8 +61,8 @@ class ConnectedForm extends Component {
     render() {
         
         return (
-            <form onSubmit={this.handleSubmit} id='edit-form'>
-                <h3>EDIT</h3>
+            <form onSubmit={this.handleSubmit} id='edit-form' className='card-shadow card'>
+                <h3>Edit</h3>
                 <div className="form-inputs-container">
 
                     
@@ -126,10 +126,12 @@ class ConnectedForm extends Component {
                     </label>
                 </div>
 
-                {/* When submitting make sure every input is filled, and hopefully make sure that the same user did not send a change for the same item && size */}
-                <button type="submit" className="btn btn-success btn-lg" placeholder="Name">
-                    SUBMIT
-                </button>
+                <div className="buttons-bottom-section">
+                    {/* When submitting make sure every input is filled, and hopefully make sure that the same user did not send a change for the same item && size */}
+                    <button type="submit" className="btn btn-success btn-lg" placeholder="Name">
+                        submit
+                    </button>
+                </div>
             </form>
         );
     }

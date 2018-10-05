@@ -8,7 +8,7 @@ const mapStateToProps = state => {
 };
 
 const ConnectedListInventory = ({ inventory }) => (
-    <div id="inventory-div">
+    <div id="inventory-div" className="card card-shadow">
         <h3>Inventory</h3>
         <div className="single-inventory-item block">
         {inventory.map(el => (
