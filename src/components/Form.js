@@ -48,8 +48,9 @@ class ConnectedForm extends Component {
         console.log('store.getState(): ', store.getState());
 
         // dispatch actions logs + add/remove items
-        this.props.addItems(`${this.state.year}${this.state.item}` , { 'XS' : Number(this.state.amount)});
-        // this.props.logChange(date, this.state.user, this.state.comments, this.state.id, { this.state.size : this.state.amount});
+        this.props.addItems(`${this.state.year}${this.state.item}` , { [this.state.size] : Number(this.state.amount)});
+        const date = new Date().toISOString();
+        this.props.logChange(date, this.state.user, this.state.comments, `${this.state.year}${this.state.item}`, { [this.state.size] : this.state.amount} );
         
         // reset the state form values
         this.setState({...defaultStateResetForm});
