@@ -30,24 +30,34 @@ class Navbar extends Component {
                           <li>
                             <div className="nav-link">
                                 <Link className="nav-a-link" to="/" >
-                                    <img className='App-logo only-desktop' src={require('../assets/bacalao-logo.svg')} alt="" />
-                                    <p className=" only-mobile">Home</p>
+                                    <img className='logo only-desktop' src={require('../assets/bacalao-logo.svg')} alt="" />
+                                    <img className='only-mobile icon-small' src={require('../assets/home2.svg')} alt="" />
+                                    <p className="only-mobile">Home</p>
                                 </Link>
                             </div>
                            </li>
                            <li>
                             <div className="nav-link">
-                                <Link className="nav-a-link" to="/edit">Edit</Link>
+                                <Link className="nav-a-link" to="/edit">
+                                <img className='' src={require('../assets/edit.svg')} alt="" />
+                                Edit
+                                </Link>
                             </div>
                            </li>
                            <li>
                                <div className="nav-link">
-                                <Link className="nav-a-link" to="/inventory">Consult</Link>
+                                <Link className="nav-a-link" to="/inventory">
+                                <img className='' src={require('../assets/boxes.svg')} alt="" />
+                                Consult
+                                </Link>
                             </div>
                            </li>
                            <li>
                                <div className="nav-link">
-                                <Link className="nav-a-link" to="/logs">Logs</Link>
+                                <Link className="nav-a-link" to="/logs">
+                                <img className='' src={require('../assets/clock.svg')} alt="" />
+                                Logs
+                                </Link>
                             </div>
                            </li>
                        </ul>

@@ -7,7 +7,6 @@ import store from "../../store";
 
 class EditCardFour extends Component {
 
-
     render() {
         
         return (
@@ -35,6 +34,5 @@ class EditCardFour extends Component {
         );
     }
 }
-
 
 export default EditCardFour;
