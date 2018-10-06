@@ -11,11 +11,12 @@ class App extends Component {
     return (
       <div className="App">
         <Navbar />
-        <div className="content-screen main">
-
-          <img className='App-logo' src={require('../assets/bacalao-logo.svg')} alt="" />
+        <div className="content-screen">
           <h1>BACALAO</h1>
           <h2>Merchandise Inventory Management Tool</h2>
+          <ListLogs />
+          <Form />
+          <ConsultInventory />
         </div>
       </div>
     );

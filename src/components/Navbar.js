@@ -29,7 +29,10 @@ class Navbar extends Component {
                        <ul>
                           <li>
                             <div className="nav-link">
-                                <Link className="nav-a-link" to="/" >Home</Link>
+                                <Link className="nav-a-link" to="/" >
+                                    <img className='App-logo only-desktop' src={require('../assets/bacalao-logo.svg')} alt="" />
+                                    <p className=" only-mobile">Home</p>
+                                </Link>
                             </div>
                            </li>
                            <li>

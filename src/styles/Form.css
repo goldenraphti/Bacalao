@@ -30,3 +30,13 @@ input:valid + span:after {
     color: #26b72b;
     padding-left: 5px;
 }
+
+a.form-cancel-link {
+    color: var(--dark-grey);
+    font-weight: 300;
+    font-size: 0.8em;
+}
+
+a.form-cancel-link:hover {
+    color: black;
+}

@@ -33,7 +33,7 @@ body {
   padding: 0;
   min-height: 100vh;
   height:100%;
-  font-family: source-sans-pro, "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
 nav a,
@@ -94,7 +94,6 @@ button {
 }
 
 h1 {
-  font-family: 'Vesper Libre', serif;
   font-size: 5em;
   letter-spacing: 0.1em;
 }
@@ -136,11 +135,29 @@ a:visited {
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-top: 50px;
 }
 
 .App-logo {
-  animation: App-logo-spin infinite 20s linear;
   height: 80px;
+  /* animation: App-logo-spin-pulse infinite 120s linear; */
+}
+
+@keyframes App-logo-spin-pulse {
+  0% {transform         : rotate(0deg) scale(1);}
+  20% {transform         : rotate(72deg) scale(1.1);}
+  25% {transform         : rotate(90deg) scale(1.0);}
+  35% {transform         : rotate(126deg) scale(1.1);}
+  50% { transform         : rotate(180deg) scale(0.9); }
+  60% { transform         :  rotate(216deg) scale(1.1); }
+  75% { transform         : rotate(180deg) scale(0.9); }
+  80% { transform         :  rotate(198deg) scale(1.1);}
+  100% {transform         : rotate(360deg) scale(1);}
+}
+
+.App-logo-name {
+  height: 40px;
+  /* animation: App-logo-spin-pulse infinite 120s linear; */
 }
 
 .App-header {
@@ -211,15 +228,22 @@ button:active {
 }
 
 .buttons-bottom-section {
-  background-color: hsl(0, 0%, 97%);
+  background-color: hsl(0, 0%, 90%);
   width: 100%;
   display: flex;
   padding: 15px 0;
   justify-content: flex-end;
-  align-items: flex-end;
-  border-radius: 7px;
+  align-items: baseline;
+  border-radius: 0 0 7px 7px;
 }
 
+.only-desktop {
+  display: none;
+}
+
+.only-mobile {
+  display: block;
+}
 
 @media only screen and (min-width: 900px) {
 
@@ -230,5 +254,13 @@ button:active {
   .content-screen {
     width: calc( 100vw - var(--navbar-desktop-width));
   }
-    
+
+  .only-desktop {
+    display: block;
+  }
+
+  .only-mobile {
+      display: none;
+  }
+
 }
