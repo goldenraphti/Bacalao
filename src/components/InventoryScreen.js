@@ -14,8 +14,6 @@ class App extends Component {
         <div className="content-screen">
           <h1>BACALAO</h1>
           <h2>Merchandise Inventory Management Tool</h2>
-          <ListLogs />
-          <Form />
           <ConsultInventory />
         </div>
       </div>

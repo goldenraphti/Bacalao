@@ -3,9 +3,9 @@ import { Provider } from 'react-redux'
 import { BrowserRouter as Router, Route } from 'react-router-dom'
 import '../styles/App.css';
 import Main from './Main'
-import Edit from './Edit'
-import Check from './Check'
-import Consult from './Consult'
+import EditScreen from './EditScreen'
+import InventoryScreen from './InventoryScreen'
+import LogsScreen from './LogsScreen'
 import store from "../store";
 
 const App = () => (
@@ -17,15 +17,15 @@ const App = () => (
             )} />
 
             <Route path="/edit" render={() => (
-                <Edit />
+                <EditScreen />
             )} />
             
-            <Route path="/check" render={() => (
-                <Check />
+            <Route path="/inventory" render={() => (
+                <InventoryScreen />
             )} />
             
-            <Route path="/consult" render={() => (
-                <Consult />
+            <Route path="/logs" render={() => (
+                <LogsScreen />
             )} />
         </div>
     </Router>
