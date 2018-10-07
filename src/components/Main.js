@@ -1,8 +1,5 @@
 import React, { Component } from 'react';
 import '../styles/App.css';
-import ListLogs from './ListLogs';
-import Form from './Form';
-import ConsultInventory from './ConsultInventory';
 import Navbar from './Navbar';
 
 
@@ -21,5 +18,7 @@ class App extends Component {
     );
   }
 }
+
+// TODO: when app start with big logo, quickly make bigger and then shrink to final SVGPathSegLinetoHorizontalAbs, and near end make the rest of text apear fadeIn
 
 export default App;

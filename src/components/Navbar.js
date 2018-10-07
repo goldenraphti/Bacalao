@@ -4,23 +4,6 @@ import { Link } from 'react-router-dom'
 
 class Navbar extends Component {
     
-    componentDidMount() {
-        this.underlineCurrentPage()
-    }
-    
-    // function to identify all the navbar links, then iterate through them to check which one is the one of the current page (innerText === this.props.currentPage) and the adds to it a className to keep it always underlines, or different color, or whatever
-    underlineCurrentPage = () => {
-        
-        let listLinks = document.getElementsByClassName('nav-a-link');
-
-        
-        for( let link of listLinks) {
-                    
-            let textLink = link.textContent.toLowerCase();
-            textLink == this.props.currentPage ? link.classList.add('currentNav') : null;
-        }
-        
-    }
     
     render() {
         return (
@@ -48,7 +31,7 @@ class Navbar extends Component {
                                <div className="nav-link">
                                 <Link className="nav-a-link" to="/inventory">
                                 <img className='' src={require('../assets/boxes.svg')} alt="" />
-                                Consult
+                                Inventory
                                 </Link>
                             </div>
                            </li>

@@ -1,19 +1,28 @@
 // src/js/components/Form.js
 import React, { Component } from "react";
-import { connect } from "react-redux";
-import {  addItems, removeItems, logChange } from "../../actions/actionCreators";
 import '../../styles/Form.css';
-import store from "../../store";
+
 
 class EditCardTwo extends Component {
 
+
+    componentDidMount() {
+        console.log(document.getElementsByClassName('toAnimate'))
+        Array.from(document.getElementsByClassName('toAnimate')).map( el => {
+            el.classList.add('fadeInRight')
+            el.classList.add('animated')
+            el.classList.add('delay-3ms')
+        });
+    }
 
     render() {
         
         return (
             <form id='edit-form' className='card-shadow card'>
                 <h3>Edit</h3>
-                <div className="form-inputs-container">
+
+
+                <div className="form-inputs-container toAnimate" key="ef2">
                 
                     <label htmlFor="item">Select the item:
                         <select id="item" onChange={this.props.handleChange} value={this.props.item}>
@@ -32,6 +41,20 @@ class EditCardTwo extends Component {
                             </optgroup>
                         </select>
                     </label>
+
+                    <fieldset className="checkbox">
+                        <input
+                        type='checkbox'
+                        name='isGoing'
+                        value='valuable'
+                        id="isGoing"
+                        
+                        checked={this.props.isGoing}
+                        onChange={this.props.handleInputChange}/>
+                        {/* <label htmlFor="isGoing"></label> */}
+                        <label for="isGoing">freedom to move</label>
+                        <label htmlFor="isGoing">freedom to move</label>
+                    </fieldset>
 
                 </div>
                 <div className="buttons-bottom-section">

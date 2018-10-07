@@ -1,0 +1,189 @@
+.log-screen .content-screen {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    margin: 0;
+    padding: 0;
+}
+
+.LogsPreviewList {
+    width: 100vw;
+}
+
+
+ul.column-list {
+}
+
+li.log-card {
+    border: 1px solid var(--light-light-grey);
+}
+
+li.log-card:hover {
+    border: 1px solid var(--light-medium-grey);
+}
+
+li.card-header:hover {
+    border: 1px solid var(--light-light-grey);
+    cursor: default;
+}
+
+li.card-header {
+    text-transform: capitalize;
+    font-size: 1.3em;
+    font-weight: 500;
+    color: var(--medium-grey);
+    background-color: var(--light-grey);
+
+    padding: 25px 10%;
+    border: 1px solid var(--light-grey);
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+li.logs-preview {
+    background-color: #fff;
+    color: var(--medium-light-grey);
+}
+
+li.logs-preview .dark {
+    color: var(--medium-dark-grey);
+    margin: 0;
+    padding: 0;
+}
+
+div.log-preview-left {
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-weight: 300;
+    font-size: 0.9em;
+}
+
+div.log-preview-right {
+    text-align: right;
+    font-size: 2em;
+    font-weight: 300;
+}
+
+button.card-preview-button {
+    background: none;
+    padding: 0;
+    margin: 0;
+
+    padding: 20px 20px;
+    width: 100%;
+    height: 100%;
+    color: var(--light-dark-grey);
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    font-size: 0.9em;
+    line-height: 1.4em;
+
+}
+
+.LogDisplayed {
+    width: 100vw;
+    height: calc(100vh - var(--navbar-mobile-height));
+    background: #fff;
+    z-index: 10;
+    position: absolute;
+}
+
+.displayed-card {
+    width: 100vw;
+    color: var(--medium-grey);
+    font-weight: 300;
+    font-size: 0.8em;
+}
+
+.log-displayed-title {
+    border-bottom: 2px solid var(--light-grey);
+    padding: 20px;
+    font-size: 1.5em;
+    font-weight: normal;
+}
+
+.log-displayed-details {
+    display: flex;
+    flex-direction: row;
+    align-items: baseline;
+    text-align: center;
+    margin: 0;
+    border-bottom: 1px solid var(--light-grey);
+    padding: 0;
+}
+
+.log-details-part {
+    border-right: 1px solid var(--light-grey);
+    padding: 20px;
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.log-details-part:last-of-type {
+    border-right: none;
+    padding: 20px;
+}
+
+.img-details-log-displayed img{
+    width: 20px;
+    margin-right: 2vw;
+}
+
+.log-displayed-date .info-details-log-displayed {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.product-details {
+    display: flex;
+    justify-content: space-around;
+    /* border-bottom: 1px solid var(--light-grey); */
+    margin: 0 0 10px;
+    padding:10px 0;
+}
+
+@media only screen and (min-width: 900px) {
+
+    nav {
+        box-shadow: 2px  0 2px 0px var(--light-grey);
+    }
+
+    .log-screen .content-screen {
+        flex-direction: row;
+        align-items: flex-start;
+    }
+  
+    .LogsPreviewList {
+        width: var(--logs-preview-width-desktop);
+        box-shadow: 2px  0 2px 0px var(--light-grey);
+        z-index: 1;
+    }
+
+
+
+    .LogDisplayed {
+        width: calc(100vw - var(--navbar-desktop-width) - var(--logs-preview-width-desktop));
+        height: 100vh;        
+        z-index: 0;
+        position: relative;
+        background: var(--light-light-grey);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .displayed-card {
+        width: calc(100vw - var(--navbar-desktop-width) - var(--logs-preview-width-desktop) - 10vw);
+        background-color: #fff;
+        border: 1px solid var(--light-grey);
+        border-radius: 5px;
+    }
+  
+  }

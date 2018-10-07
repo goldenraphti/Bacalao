@@ -18,8 +18,8 @@ const ConnectedListInventory = ({ inventory }) => (
                 <br/>Year: {el.year}
                 <br/><h4>Sizes:</h4>
                 <ul className="list-size-inventory">
-                    {Object.keys(el.size).map( sizeInventoryKey => (
-                        <li className="item-size-log" key={`${el.id}-${sizeInventoryKey}`}>{sizeInventoryKey} : {el.size[sizeInventoryKey]}</li>
+                    {Object.keys(el.quantities).map( sizeInventoryKey => (
+                        <li className="item-size-log" key={`${el.id}-${sizeInventoryKey}`}>{sizeInventoryKey} : {el.quantities[sizeInventoryKey]}</li>
                     ))}
                 </ul>
                 <br/><button>See image</button>

@@ -4,7 +4,6 @@ import { connect } from "react-redux";
 import {  addItems, removeItems, logChange } from "../actions/actionCreators";
 import '../styles/Form.css';
 import store from "../store";
-import Form from './Form';
 import Navbar from './Navbar';
 import EditCardOne from './edit-screens-steps/EditCardOne';
 import EditCardTwo from './edit-screens-steps/EditCardTwo';
@@ -26,7 +25,9 @@ const defaultStateResetForm = {
     amount: undefined,
     comments: '',
     user: '',
-    cardToDisplay: EditCardOne
+    cardToDisplay: EditCardOne,
+
+    isGoing: false,
 };
 
 class ConnectedEditScreen extends Component {
@@ -36,6 +37,7 @@ class ConnectedEditScreen extends Component {
         this.state = {};
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
+        this.handleInputChange = this.handleInputChange.bind(this);
     }
 
     componentWillMount() {
@@ -45,6 +47,16 @@ class ConnectedEditScreen extends Component {
     handleChange(event) {
         console.log('handleChange: ', event.target.id, event.target.value)
         this.setState({ [event.target.id]: event.target.value });
+    }
+
+    handleInputChange(event) {
+        const target = event.target;
+        const value = target.type === 'checkbox' ? target.checked : target.value;
+        const name = target.name;
+    
+        this.setState({
+          [name]: value
+        });
     }
 
 
@@ -88,16 +100,16 @@ class ConnectedEditScreen extends Component {
             <div className="App">
                 <Navbar />
                 <div className="content-screen">
-                <img className='App-logo-name' src={require('../assets/bacalao-logo-with-name.svg')} alt="" />
-                {/* <Form /> */}
-                
-                <this.state.cardToDisplay
-                {...this.props}
-                {...this.state}
-                handleChange = {this.handleChange}
-                handleSubmit = {this.handleSubmit}
-                nextScreen =  {this.nextScreen.bind(this)}
-                />
+                    <img className='App-logo-name' src={require('../assets/bacalao-logo-with-name.svg')} alt="" />
+                    {/* <Form /> */}
+                    <this.state.cardToDisplay
+                    {...this.props}
+                    {...this.state}
+                    handleChange = {this.handleChange}
+                    handleSubmit = {this.handleSubmit}
+                    handleInputChange = {this.handleInputChange}
+                    nextScreen =  {this.nextScreen.bind(this)}
+                    />
                 </div>
             </div>
             );
@@ -105,7 +117,7 @@ class ConnectedEditScreen extends Component {
     }
 
 /* Side note:
- the first argument for connect must be nullwhen mapStateToProps is absent
+ the first argument for connect must be null when mapStateToProps is absent
   like in the Form example. Otherwise you’ll get
    TypeError: dispatch is not a function */
 const EditScreen = connect(null, mapDispatchToProps)(ConnectedEditScreen);

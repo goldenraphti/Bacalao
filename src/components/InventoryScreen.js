@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
 import '../styles/App.css';
-import ListLogs from './ListLogs';
-import Form from './Form';
 import ConsultInventory from './ConsultInventory';
 import Navbar from './Navbar';
 
@@ -12,8 +10,7 @@ class App extends Component {
       <div className="App">
         <Navbar />
         <div className="content-screen">
-          <h1>BACALAO</h1>
-          <h2>Merchandise Inventory Management Tool</h2>
+          <img className='App-logo-name' src={require('../assets/bacalao-logo-with-name.svg')} alt="" />
           <ConsultInventory />
         </div>
       </div>

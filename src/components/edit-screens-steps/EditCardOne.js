@@ -1,19 +1,33 @@
 // src/js/components/Form.js
 import React, { Component } from "react";
-import { connect } from "react-redux";
-import {  addItems, removeItems, logChange } from "../../actions/actionCreators";
 import '../../styles/Form.css';
-import store from "../../store";
+
 
 class EditCardOne extends Component {
 
+
+    componentDidMount() {
+        console.log(document.getElementsByClassName('toAnimate'))
+        Array.from(document.getElementsByClassName('toAnimate')).map( el => {
+            el.classList.add('fadeInRight')
+            el.classList.add('animated')
+            el.classList.add('delay-3ms')
+        });
+    }
+
+    componentWillUnmount() {
+        Array.from(document.getElementsByClassName('toAnimate')).map( el => {
+            el.classList.add('fadeOut')
+            el.classList.add('animated')
+        });
+    }
 
     render() {
         
         return (
             <form id='edit-form' className='card-shadow card'>
                 <h3>Edit</h3>
-                <div className="form-inputs-container">
+                <div className="form-inputs-container toAnimate" key="ef1">
                     <label htmlFor="year">Item's year:
                         <select id="year" onChange={this.props.handleChange} value={this.props.year}>
                         {/* create those options dynamically, depending of the year chosen */}
@@ -24,7 +38,6 @@ class EditCardOne extends Component {
                                 <option value='2014'>2014</option>
                         </select>
                     </label>
-
 
                 </div>
                 <div className="buttons-bottom-section">
