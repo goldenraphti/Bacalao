@@ -30,7 +30,8 @@ li.card-header:hover {
 li.card-header {
     text-transform: capitalize;
     font-size: 1.3em;
-    font-weight: 500;
+    font-family: 'Titillium Web', sans-serif;
+    font-weight: 700;
     color: var(--medium-grey);
     background-color: var(--light-grey);
 
@@ -57,7 +58,6 @@ div.log-preview-left {
     display: flex;
     flex-direction: column;
     align-items: center;
-    font-weight: 300;
     font-size: 0.9em;
 }
 
@@ -80,6 +80,7 @@ button.card-preview-button {
     justify-content: space-around;
     align-items: center;
     font-size: 0.9em;
+    font-weight: 400;
     line-height: 1.4em;
 
 }
@@ -95,7 +96,8 @@ button.card-preview-button {
 .displayed-card {
     width: 100vw;
     color: var(--medium-grey);
-    font-weight: 300;
+    font-family: 'Titillium Web', sans-serif;
+    font-weight: 400;
     font-size: 0.8em;
 }
 
@@ -103,7 +105,7 @@ button.card-preview-button {
     border-bottom: 2px solid var(--light-grey);
     padding: 20px;
     font-size: 1.5em;
-    font-weight: normal;
+    font-weight: 700;
 }
 
 .log-displayed-details {
@@ -123,6 +125,7 @@ button.card-preview-button {
     display: flex;
     align-items: center;
     justify-content: center;
+    font-weight: 700;
 }
 
 .log-details-part:last-of-type {
