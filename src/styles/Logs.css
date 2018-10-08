@@ -4,10 +4,16 @@
     justify-content: flex-start;
     margin: 0;
     padding: 0;
+    margin-bottom: var(--navbar-mobile-height);
 }
 
 .LogsPreviewList {
     width: 100vw;
+    max-height: calc(100vh - var(--navbar-mobile-height));
+    overflow-y: scroll; 
+    position: absolute;
+    top: 0;
+    margin-bottom: var(--navbar-mobile-height);
 }
 
 
@@ -69,18 +75,17 @@ div.log-preview-right {
 
 button.card-preview-button {
     background: none;
-    padding: 0;
     margin: 0;
 
-    padding: 20px 20px;
+    padding: 10px 30px;
     width: 100%;
     height: 100%;
     color: var(--light-dark-grey);
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
     font-size: 0.9em;
-    font-weight: 400;
+    font-weight: 500;
     line-height: 1.4em;
 
 }
@@ -91,6 +96,11 @@ button.card-preview-button {
     background: #fff;
     z-index: 10;
     position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+
 }
 
 .displayed-card {
@@ -102,29 +112,66 @@ button.card-preview-button {
 }
 
 .log-displayed-title {
-    border-bottom: 2px solid var(--light-grey);
-    padding: 20px;
+    border-bottom: 1px solid var(--light-grey);
+    padding: 20px 40px;
     font-size: 1.5em;
     font-weight: 700;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+button.close-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: none;
+    margin: 0;
+}
+
+div.close-line {
+    height: 20px;
+    width: 2px;
+    background: var(--light-grey);
+}
+
+button.close-button:hover div.close-line,
+button.close-button:active div.close-line {
+    background: var(--light-dark-grey);
+}
+
+button.close-button:active {
+    transform: scale(0.7);
+}
+
+
+div.close-line-1 {
+    transform: rotate(45deg);
+    position: absolute;
+}
+
+div.close-line-2 {
+    transform: rotate(-45deg);
+    position: absolute;
 }
 
 .log-displayed-details {
     display: flex;
     flex-direction: row;
-    align-items: baseline;
+    align-items: stretch;
     text-align: center;
     margin: 0;
     border-bottom: 1px solid var(--light-grey);
-    padding: 0;
+    padding: 5px;
 }
 
 .log-details-part {
     border-right: 1px solid var(--light-grey);
-    padding: 20px;
+    padding: 15px 3vw;
     flex-grow: 1;
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
     font-weight: 700;
 }
 
@@ -145,11 +192,28 @@ button.card-preview-button {
 }
 
 .product-details {
-    display: flex;
-    justify-content: space-around;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    justify-items: stretch;
     /* border-bottom: 1px solid var(--light-grey); */
     margin: 0 0 10px;
     padding:10px 0;
+    font-weight: 600;
+    color: var(--light-dark-grey);
+}
+
+ul.product-sizes {
+    display: grid;
+    grid-gap: 0;
+    grid-template-rows:  repeat(2, 1fr);
+    grid-auto-columns: 50px;
+    grid-auto-flow: column;
+    justify-content: center;
+}
+
+.log-total {
+    font-size: 1.5em;
+    color: var(--grey-text);
 }
 
 @media only screen and (min-width: 900px) {
@@ -161,15 +225,17 @@ button.card-preview-button {
     .log-screen .content-screen {
         flex-direction: row;
         align-items: flex-start;
+        margin-left: var(--navbar-desktop-width);
+        margin-bottom: 0;
     }
   
     .LogsPreviewList {
         width: var(--logs-preview-width-desktop);
         box-shadow: 2px  0 2px 0px var(--light-grey);
         z-index: 1;
+        max-height: 100vh;
+        margin-bottom: 0px;
     }
-
-
 
     .LogDisplayed {
         width: calc(100vw - var(--navbar-desktop-width) - var(--logs-preview-width-desktop));
@@ -177,9 +243,10 @@ button.card-preview-button {
         z-index: 0;
         position: relative;
         background: var(--light-light-grey);
-        display: flex;
-        justify-content: center;
-        align-items: center;
+        margin-left: var(--logs-preview-width-desktop);
+        max-width: calc( 100vw - var(--navbar-desktop-width) - var(--logs-preview-width-desktop));
+        max-height: 100vh;
+        overflow-y: scroll;
     }
 
     .displayed-card {
@@ -187,6 +254,7 @@ button.card-preview-button {
         background-color: #fff;
         border: 1px solid var(--light-grey);
         border-radius: 5px;
+        margin: 40px 0;
     }
   
   }

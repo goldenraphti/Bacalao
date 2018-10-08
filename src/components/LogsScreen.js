@@ -45,6 +45,7 @@ class ConnectedLogsScreen extends Component {
           {this.state.logDisplayed !== null ? <LogDisplayed
            log={this.state.logDisplayed}
            {...this.props}
+           handleClick = {this.handleClick.bind(this)}
            /> : null}
         </div>
       </div>

@@ -13,7 +13,8 @@ const logs = [
                 'quantities': {
                     'S': -10,
                     'L': -4,
-                    'XL': -13
+                    'XL': -13,
+                    'total': -27
                 }
             },
             '2018FTE': {
@@ -23,7 +24,8 @@ const logs = [
                 'quantities': {
                     'XS': -10,
                     'M': -4,
-                    'XL': -9
+                    'XL': -9,
+                    'total': -23
                 }
             },
             '2018FTETOT': {
@@ -31,10 +33,10 @@ const logs = [
                 'year': 2018,
                 'type': 'totebag',
                 'quantities': {
-                    'SU': 4,
+                    'SU': -4,
                 }
             },
-            'total': 56
+            'total': -54
         }
 
     },
@@ -50,30 +52,32 @@ const logs = [
                 'year': 2018,
                 'type': 'shirt',
                 'quantities': {
-                    'S': -10,
-                    'L': -4,
-                    'XL': -13
+                    'S': -11,
+                    'M': -9,
+                    'XL': -3,
+                    'total': -23
                 }
             },
-            '2018FTE': {
-                'name': 'Freedom to express',
+            '2018FFS': {
+                'name': 'Freedom for sale',
                 'year': 2018,
                 'type': 'shirt',
                 'quantities': {
-                    'XS': -10,
-                    'M': -4,
-                    'XL': -9
+                    'S': -17,
+                    'M': -24,
+                    'L': -11,
+                    'total': -52
                 }
             },
-            '2018FTETOT': {
+            '2018FTMTOT': {
                 'name': 'Freedom to express',
                 'year': 2018,
                 'type': 'totebag',
                 'quantities': {
-                    'SU': 4,
+                    'SU': -11,
                 }
             },
-            'total': 56
+            'total': -86
         }
 
     },
@@ -91,7 +95,8 @@ const logs = [
                 'quantities': {
                     'S': -10,
                     'L': -4,
-                    'XL': -13
+                    'XL': -13,
+                    'total': -27
                 }
             },
             '2018FTE': {
@@ -100,8 +105,9 @@ const logs = [
                 'type': 'shirt',
                 'quantities': {
                     'XS': -10,
-                    'M': -4,
-                    'XL': -9
+                    'M': -14,
+                    'XL': -9,
+                    'total': -33
                 }
             },
             '2018FTETOT': {
@@ -109,10 +115,10 @@ const logs = [
                 'year': 2018,
                 'type': 'totebag',
                 'quantities': {
-                    'SU': 4,
+                    'SU': -4,
                 }
             },
-            'total': 56
+            'total': -64
         }
 
     },
@@ -128,9 +134,10 @@ const logs = [
                 'year': 2018,
                 'type': 'shirt',
                 'quantities': {
-                    'S': -10,
-                    'L': -4,
-                    'XL': -13
+                    'S': -13,
+                    'M': -4,
+                    'L': -23,
+                    'total': -40
                 }
             },
             '2018FTE': {
@@ -140,7 +147,19 @@ const logs = [
                 'quantities': {
                     'XS': -10,
                     'M': -4,
-                    'XL': -9
+                    'XL': -9,
+                    'total': -23
+                }
+            },
+            '2018FTL': {
+                'name': 'Freedom to love',
+                'year': 2018,
+                'type': 'shirt',
+                'quantities': {
+                    'S': -10,
+                    'M': -14,
+                    'XL': -4,
+                    'total': -28
                 }
             },
             '2018FTETOT': {
@@ -148,10 +167,18 @@ const logs = [
                 'year': 2018,
                 'type': 'totebag',
                 'quantities': {
-                    'SU': 4,
+                    'SU': -6,
                 }
             },
-            'total': 56
+            '2018FTMTOT': {
+                'name': 'Freedom to move',
+                'year': 2018,
+                'type': 'totebag',
+                'quantities': {
+                    'SU': -11,
+                }
+            },
+            'total': -108
         }
     },
     {
@@ -161,14 +188,15 @@ const logs = [
         'comments': 'The Beach Boyas concert sale',
         'id': 'YUIBH8764CVSE6KLO',
         'productsSold': {
-            '2018FTM': {
-                'name': 'Freedom to move',
+            '2018FTL': {
+                'name': 'Freedom to love',
                 'year': 2018,
                 'type': 'shirt',
                 'quantities': {
-                    'S': -10,
-                    'L': -4,
-                    'XL': -13
+                    'S': -12,
+                    'L': -14,
+                    'XL': -3,
+                    'total': -29
                 }
             },
             '2018FTE': {
@@ -178,7 +206,8 @@ const logs = [
                 'quantities': {
                     'XS': -10,
                     'M': -4,
-                    'XL': -9
+                    'XL': -9,
+                    'total': -23
                 }
             },
             '2018FTETOT': {
@@ -186,10 +215,133 @@ const logs = [
                 'year': 2018,
                 'type': 'totebag',
                 'quantities': {
-                    'SU': 4,
+                    'SU': -11,
                 }
             },
-            'total': 56
+            'total': -63
+        }
+
+    },
+    {
+        'date': '2018-10-07T10:05:14.044Z',
+        'user': 'Louis De Funes',
+        'concert': 'Buena Vista Social Club',
+        'comments': 'The Beach Boyas concert sale',
+        'id': 'RTYGJGH54846',
+        'productsSold': {
+            '2018FTM': {
+                'name': 'Freedom to move',
+                'year': 2018,
+                'type': 'shirt',
+                'quantities': {
+                    'S': -11,
+                    'M': -9,
+                    'XL': -3,
+                    'total': -23
+                }
+            },
+            '2018FFS': {
+                'name': 'Freedom for sale',
+                'year': 2018,
+                'type': 'shirt',
+                'quantities': {
+                    'S': -17,
+                    'M': -24,
+                    'L': -11,
+                    'total': -52
+                }
+            },
+            '2018FTMTOT': {
+                'name': 'Freedom to express',
+                'year': 2018,
+                'type': 'totebag',
+                'quantities': {
+                    'SU': -11,
+                }
+            },
+            'total': -86
+        }
+
+    },
+    {
+        'date': '2018-10-03T20:05:14.044Z',
+        'user': 'Raoul Blanchard',
+        'concert': 'Toto la Monposina',
+        'comments': 'The Beach Boyas concert sale',
+        'id': 'HGFHGF9845UYT',
+        'productsSold': {
+            '2018FTM': {
+                'name': 'Freedom to move',
+                'year': 2018,
+                'type': 'shirt',
+                'quantities': {
+                    'S': -10,
+                    'L': -4,
+                    'XL': -13,
+                    'total': -27
+                }
+            },
+            '2018FTE': {
+                'name': 'Freedom to express',
+                'year': 2018,
+                'type': 'shirt',
+                'quantities': {
+                    'XS': -10,
+                    'M': -14,
+                    'XL': -9,
+                    'total': -33
+                }
+            },
+            '2018FTETOT': {
+                'name': 'Freedom to express',
+                'year': 2018,
+                'type': 'totebag',
+                'quantities': {
+                    'SU': -4,
+                }
+            },
+            'total': -64
+        }
+
+    },
+    {
+        'date': '2018-10-02T13:05:14.044Z',
+        'user': 'Gaston Lagaffe',
+        'concert': 'Emel Mathlouti',
+        'comments': 'The Beach Boyas concert sale',
+        'id': 'YUIBH8764CVSE6KLO',
+        'productsSold': {
+            '2018FTL': {
+                'name': 'Freedom to love',
+                'year': 2018,
+                'type': 'shirt',
+                'quantities': {
+                    'S': -12,
+                    'L': -14,
+                    'XL': -3,
+                    'total': -29
+                }
+            },
+            '2018FTE': {
+                'name': 'Freedom to express',
+                'year': 2018,
+                'type': 'shirt',
+                'quantities': {
+                    'XS': -10,
+                    'M': -4,
+                    'XL': -9,
+                    'total': -23
+                }
+            },
+            '2018FTETOT': {
+                'name': 'Freedom to express',
+                'year': 2018,
+                'type': 'totebag',
+                'quantities': {
+                    'SU': -11,
+                }
+            },
+            'total': -63
         }
 
     }

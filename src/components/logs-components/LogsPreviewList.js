@@ -21,7 +21,6 @@ class LogsPreviewList extends Component {
               <button onClick={() => this.props.handleClick(el.id)} className="card-preview-button">
                   <div className="log-preview-left"><p>
                       Date: {new Date(el.date).toLocaleDateString()}
-                      <br/>User: {el.user}
                       <br/>Concert: <span className="dark">{el.concert}</span>
                   </p>
                   </div>
