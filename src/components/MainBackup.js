@@ -5,7 +5,6 @@ import Form from './Form';
 import ConsultInventory from './ConsultInventory';
 import Navbar from './Navbar';
 
-
 class App extends Component {
   render() {
     return (

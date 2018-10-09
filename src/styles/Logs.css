@@ -16,10 +16,6 @@
     margin-bottom: var(--navbar-mobile-height);
 }
 
-
-ul.column-list {
-}
-
 li.log-card {
     border: 1px solid var(--light-light-grey);
     border-left: 4px solid var(--light-light-grey);
@@ -42,7 +38,7 @@ li.card-header:hover {
 li.card-header {
     text-transform: capitalize;
     font-size: 1.3em;
-    font-family: 'Titillium Web', sans-serif;
+    font-family: 'PT Sans', sans-serif;
     font-weight: 700;
     color: var(--medium-grey);
     background-color: var(--light-grey);
@@ -106,13 +102,14 @@ button.card-preview-button {
     justify-content: flex-start;
     align-items: center;
     top:0;
+    overflow-y: scroll;
 }
 
 .displayed-card {
     width: 100vw;
     color: var(--medium-grey);
-    font-family: 'Titillium Web', sans-serif;
-    font-weight: 400;
+    font-family: 'PT Sans', sans-serif;
+    font-weight: 700;
     font-size: 0.8em;
 }
 

@@ -1,0 +1,44 @@
+div.inventory-content {
+    width: 100vw;
+    height: 100vh;
+    padding: 5vh 5vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+div.inventory-content > div {
+    margin: 20px 0;
+}
+
+div.inventory-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 50px;
+}
+
+div.inventory-header h3 {
+    margin: 0;
+}
+
+div.inventory-header img {
+    display: none;
+}
+
+form.inventory-sorting {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+}
+
+@media only screen and (min-width: 900px) {
+    div.inventory-content {
+        width: calc(100vw - var(--navbar-desktop-width));
+    }
+
+    div.inventory-header img {
+        display: block;
+        width: 100px;
+    }
+}

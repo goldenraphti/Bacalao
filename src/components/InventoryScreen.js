@@ -1,21 +1,56 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import '../styles/App.css';
-import ConsultInventory from './ConsultInventory';
+import InventoryCards from './InventoryCards';
 import Navbar from './Navbar';
+import '../styles/Inventory.css';
 
 
-class App extends Component {
+const mapStateToProps = (state) => {
+  console.log('state.inventory', state.inventory);
+  return { inventory: state.inventory };
+};
+
+class ConnectedInventoryScreen extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      itemType: 'all',
+      sortBy: 'lowest',
+    };
+
+    this.handleChange = this.handleChange.bind(this);
+  }
+
+  handleChange(event) {
+    this.setState({ [event.target.id]: event.target.value });
+  }
+
+  /* takes the id of the item previewed clicked,
+  pass it to state to display it big (to be implemented in near future) */
+  handleClick(item) {
+    console.log('item', item);
+    this.setState({ itemDisplayed: item });
+  }
+
   render() {
     return (
       <div className="App">
         <Navbar />
         <div className="content-screen">
-          <img className='App-logo-name' src={require('../assets/bacalao-logo-with-name.svg')} alt="" />
-          <ConsultInventory />
+          <InventoryCards
+            itemType={ this.state.itemType }
+            sortBy={ this.state.sortBy }
+            handleChange={ this.handleChange }
+            {...this.props}
+          />
         </div>
       </div>
     );
   }
 }
 
-export default App;
+
+const InventoryScreen = connect(mapStateToProps)(ConnectedInventoryScreen);
+
+export default InventoryScreen;
