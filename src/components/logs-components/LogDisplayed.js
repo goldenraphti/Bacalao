@@ -62,13 +62,13 @@ class LogDisplayed extends Component {
                     <p>Sub-total</p>
             </div>
             {Object.keys(log.productsSold).filter(item => item !== 'total').map(item =>  (
-              <div className="product-details">
+              <div key={item} className="product-details">
               <p>{item}</p>
               <p>{log.productsSold[item].name}</p>
               <p>{log.productsSold[item].type}</p>
               {/* display sizes sold, filtering so not display for totebag (because Size Universal) */}
               <ul className="product-sizes">{log.productsSold[item].type === 'totebag' ? null : Object.keys(log.productsSold[item].quantities).filter(size => size !== 'total').map( size => (
-                  <li>{size}:{log.productsSold[item].quantities[size]}</li>
+                  <li key={size}>{size}:{log.productsSold[item].quantities[size]}</li>
                 ))}
                 </ul>
                 <p>{log.productsSold[item].type === 'totebag' ? log.productsSold[item].quantities.SU : log.productsSold[item].quantities.total}</p>

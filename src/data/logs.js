@@ -44,7 +44,7 @@ const logs = [
         'date': '2018-10-07T10:05:14.044Z',
         'user': 'Louis De Funes',
         'concert': 'Buena Vista Social Club',
-        'comments': 'The Beach Boyas concert sale',
+        'comments': 'Entrance doors',
         'id': 'RTYGJGH54846',
         'productsSold': {
             '2018FTM': {
@@ -85,7 +85,7 @@ const logs = [
         'date': '2018-10-03T20:05:14.044Z',
         'user': 'Raoul Blanchard',
         'concert': 'Toto la Monposina',
-        'comments': 'The Beach Boyas concert sale',
+        'comments': 'Concert sale',
         'id': 'HGFHGF9845UYT',
         'productsSold': {
             '2018FTM': {
@@ -223,11 +223,11 @@ const logs = [
 
     },
     {
-        'date': '2018-10-07T10:05:14.044Z',
-        'user': 'Louis De Funes',
-        'concert': 'Buena Vista Social Club',
-        'comments': 'The Beach Boyas concert sale',
-        'id': 'RTYGJGH54846',
+        'date': '2018-10-06T10:15:14.044Z',
+        'user': 'Carl Godager',
+        'concert': 'Fatoumata Diawara',
+        'comments': 'Entrance doors',
+        'id': 'YUIGH238FGH69',
         'productsSold': {
             '2018FTM': {
                 'name': 'Freedom to move',
@@ -264,11 +264,11 @@ const logs = [
 
     },
     {
-        'date': '2018-10-03T20:05:14.044Z',
-        'user': 'Raoul Blanchard',
-        'concert': 'Toto la Monposina',
-        'comments': 'The Beach Boyas concert sale',
-        'id': 'HGFHGF9845UYT',
+        'date': '2018-10-03T19:45:14.044Z',
+        'user': 'Louis Labrocante',
+        'concert': 'Manu Chao',
+        'comments': null,
+        'id': 'YUIVG75ER46P',
         'productsSold': {
             '2018FTM': {
                 'name': 'Freedom to move',
@@ -305,10 +305,10 @@ const logs = [
 
     },
     {
-        'date': '2018-10-02T13:05:14.044Z',
-        'user': 'Gaston Lagaffe',
-        'concert': 'Emel Mathlouti',
-        'comments': 'The Beach Boyas concert sale',
+        'date': '2018-10-01T22:55:14.044Z',
+        'user': 'Michael Chapou',
+        'concert': 'Bonga',
+        'comments': null,
         'id': 'YUIBH8764CVSE6KLO',
         'productsSold': {
             '2018FTL': {
