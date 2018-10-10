@@ -10,6 +10,18 @@ form {
     padding: 15px 35px;
 }
 
+.buttons-bottom-section {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 2vw 10px 5vw;
+}
+
+.buttons-bottom-section a.form-previous-step {
+    font-weight: 300;
+    color: var(--palette-1-3-medium);
+    font-size: 0.9em;
+}
+
 input {
     margin: 1rem 0;
 }
@@ -41,7 +53,6 @@ a.form-cancel-link:hover {
     color: black;
 }
 
-/* test hacking styles checkboxes */
 
 fieldset {
     border: none;

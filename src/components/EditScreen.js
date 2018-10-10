@@ -54,19 +54,19 @@ class ConnectedEditScreen extends Component {
         const value = target.type === 'checkbox' ? target.checked : target.value;
         const name = target.name;
     
-        console.log( 'inside handleInputChange', event.target.name , event.target.value , event.target.type, event.target.checked, event.target.fieldset);
+        console.log( 'inside handleInputChange', target.name , target.value , target.type, target.checked);
         // if deciding itemsType, toggle clicked target from the state array
         if(target.name === 'shirt' || target.name === 'totebag') {
             let newItemsType = this.state.itemsType;
             const indexValue = newItemsType.findIndex( itemType => itemType === target.name);
             indexValue === -1 ? newItemsType.push(target.name) : newItemsType.splice(indexValue, 1);
             this.setState({itemsType : newItemsType})
+        } else {
+            this.setState({ [name]: value });
         }
 
 
-        this.setState({
-          [name]: value
-        });
+
     }
 
 
@@ -119,14 +119,16 @@ class ConnectedEditScreen extends Component {
                     handleChange = {this.handleChange}
                     handleSubmit = {this.handleSubmit}
                     handleInputChange = {this.handleInputChange}
-                    nextScreen =  {this.nextScreen.bind(this)}
                     />
                     <div className="buttons-bottom-section">
                         <a href="" className="form-cancel-link">Cancel</a>
                         {/* When submitting make sure every input is filled, and hopefully make sure that the same user did not send a change for the same item && size */}
-                        <button type="button" className="" placeholder=""  onClick={() => this.props.nextScreen(this.props.cardToDisplay)} >
-                            Next
-                        </button>
+                        <div class="form-navigation">
+                            <a href="" className="form-previous-step" >Previous</a>
+                            <button type="button" className="" placeholder=""  onClick={() => this.nextScreen(this.state.cardToDisplay)} >
+                                Next
+                            </button>
+                        </div>
                     </div>
                 </form>
                 </div>
