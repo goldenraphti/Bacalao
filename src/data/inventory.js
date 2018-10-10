@@ -1,9 +1,10 @@
 const inventory = [
     {
-        'id' : '2018FTE',
+        'id' : '2018FFS',
         'type': 'shirt',
         'year': 2018,
-        'name': 'Freedom to express',
+        'image': '2018FFS.jpg',
+        'name': 'Freedom for sale',
         'quantities': {
             'XS': 200,
             'S' : 200,
@@ -17,6 +18,7 @@ const inventory = [
         'type': 'shirt',
         'year': 2018,
         'name': 'Freedom to Love',
+        'image': '2018FTL.png',
         'quantities': {
             'XS': 200,
             'S' : 350,
@@ -29,6 +31,7 @@ const inventory = [
         'type': 'shirt',
         'year': 2018,
         'name': 'Freedom to move',
+        'image': '2018FTM.jpg',
         'quantities': {
             'XS': 102,
             'S' : 560,
@@ -38,52 +41,25 @@ const inventory = [
         }
     },
     {
-        'id' : '2018FTR',
-        'type': 'shirt',
-        'year': 2018,
-        'name': 'Freedom to Resist',
-        'quantities': {
-            'XS': 220,
-            'S' : 610,
-            'M' : 510,
-            'L' : 450,
-            'XL': 120
-        }
-    },
-    {
-        'id' : '2018FFS',
-        'type': 'shirt',
-        'year': 2018,
-        'name': 'Freedom for sale',
-        'quantities': {
-            'XS': 150,
-            'S' : 390,
-            'M' : 680,
-            'L' : 450,
-            'XL': 120
-        }
-    },
-    {
-        'id' : '2018FTMTOT',
+        'id' : '2018FTRTOT',
         'type': 'totebag',
         'year': 2018,
         'name': 'Freedom to move',
-        'quantities': 230,
+        'image': '2018FTRTOT.png',
+        'quantities': {
+            'SU':230
+        },
     },
     {
         'id' : '2018FTETOT',
         'type': 'totebag',
         'year': 2018,
         'name': 'Freedom to express',
-        'quantities': 340,
+        'image': '2018FTETOT.png',
+        'quantities': {
+            'SU': 340
+        },
     },
-    {
-        'id' : '2018FFSTOT',
-        'type': 'totebag',
-        'year': 2018,
-        'name': 'Freedom for sale',
-        'quantities': 120,
-    }
 ];
 
 export default inventory;

@@ -35,6 +35,13 @@ form.inventory-sorting {
     justify-content: flex-start;
 }
 
+form .inventory-filter {
+    display: flex;
+    align-items: baseline;
+    color: var(--light-dark-grey);
+    font-weight: 400;
+}
+
 .inventory-cards {
     display: grid;
     grid-gap: 10px;
@@ -55,10 +62,11 @@ div.card-product {
                         "title title"
                         "type year"
                         "sizes total";
-    grid-template-rows:    4fr 1fr 1fr 1fr;
+    grid-template-rows:    7fr 1fr 1fr 1fr;
     grid-template-columns: 3fr 2fr;
     align-items: center;
     text-align: center;
+    color: var(--light-dark-grey);
 }
 
 .item-image {
@@ -67,6 +75,8 @@ div.card-product {
 
 .item-name {
     grid-area: title;
+    text-transform: uppercase;
+    color: var(--grey-text);
 }
 
 div.card-product p {
@@ -86,6 +96,8 @@ div.card-product p {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     font-size: 0.8em;
+    justify-items: end;
+
 }
 
 .item-sizes p {
