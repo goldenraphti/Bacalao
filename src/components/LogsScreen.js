@@ -50,6 +50,7 @@ class ConnectedLogsScreen extends Component {
         <div className="content-screen log-screen-content">
           { this.state.windowWidth < 900 && this.state.logDisplayed !== null ? null : <LogsPreviewList
             {...this.props}
+            logDisplayed={this.state.logDisplayed}
             handleClick={this.handleClick.bind(this)}
           />}
           {this.state.logDisplayed !== null ? <LogDisplayed

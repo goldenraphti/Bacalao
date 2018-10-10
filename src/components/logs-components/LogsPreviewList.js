@@ -17,7 +17,7 @@ class LogsPreviewList extends Component {
         <ul className="column-list">
           <li className="log-card card-header">Logs List</li>
           {this.props.logs.map(el => (
-            <li className="log-card logs-preview" key={el.date}>
+            <li className={ el.id === this.props.logDisplayed ? "log-card logs-preview log-selected" : "log-card logs-preview"} key={el.date}>
               <button onClick={() => this.props.handleClick(el.id)} className="card-preview-button">
                   <div className="log-preview-left"><p>
                       Date: {new Date(el.date).toLocaleDateString()}

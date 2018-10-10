@@ -55,6 +55,11 @@ li.logs-preview {
     color: var(--medium-light-grey);
 }
 
+li.log-selected {
+    background-color: var(--palette-1-3-very-very-light);
+    color: var(--medium-light-grey);
+}
+
 li.logs-preview .dark {
     color: var(--medium-dark-grey);
     margin: 0;
