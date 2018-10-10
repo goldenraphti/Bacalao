@@ -8,29 +8,38 @@ class EditCardThree extends Component {
     render() {
         
         return (
-            <div className="edit-three">
-                <h3>Edit</h3>
-                <div className="form-inputs-container">
+            <div className="card-three">
+                <h3>Sizes and quantities</h3>
                 
-                <label htmlFor="size">Select size:
-                    <select id="size" onChange={this.props.handleChange} value={this.props.size}>
-                        <option disabled value='undefined'> -- select a size -- </option>
-                    {/* create those options dynamically, depending of the year chosen */}
-                        <option value='XS'>XS</option>
-                        <option value='S'>S</option>
-                        <option value='M'>M</option>
-                        <option value='L'>L</option>
-                        <option value='XL'>XL</option>
-                    </select>
-                </label>
+                <fieldset action="" className="products-sizes">
+                
+                {this.props.inventory.filter( inventoryProduct => this.props.selectedProducts.includes(inventoryProduct.id) ).map( product => (
+                    <div key={product.id} className="product-accordion">
+                        <div className={`accordion-preview img${product.id}`}>
+                            <h4>{product.name}</h4>
+                            <p>{product.type}</p>
+                        </div>
+                        <div className="accordion-sizes">
+                            {Object.keys(product.quantities).map( size => (
+                                <label key={size}>
+                                    {size}:
+                                     <input
+                                        name={`${product.id}-${size}`}
+                                        type="number"
+                                        min="0"
+                                        value={this.props[`${product.id}${size}`]}
+                                        onChange={this.props.handleInputChange} />
+                                </label>
+                            ))}
+                        </div>
+                    </div>
+                ) )
+                
 
-                <label htmlFor="amount">Amount sold:
-                    <input type="number" id="amount" name="amount"
-                        placeholder="0" step="1" min='0' onChange={this.props.handleChange}/>
-                    <span className="validity"></span>
-                </label>
+                }
+                
+                </fieldset>  
 
-                </div>
             </div>
         );
     }

@@ -62,8 +62,8 @@ class ConnectedEditScreen extends Component {
         const target = event.target;
         const value = target.type === 'checkbox' ? target.checked : target.value;
         const name = target.name;
-    
-        console.log( 'inside handleInputChange', target.name , target.value , target.type, target.checked, 'this.state.selectedProducts', this.state.selectedProducts);
+
+        console.log( 'inside handleInputChange', target.name , target.value ,'new sizes', this.state);
         // if deciding itemsType, toggle clicked target from the state array
         if(target.name === 'shirt' || target.name === 'totebag') {
             let newItemsType = this.state.itemsType;
@@ -75,11 +75,9 @@ class ConnectedEditScreen extends Component {
             const indexValue = newSelectedProducts.findIndex( productId => productId === target.name);
             indexValue === -1 ? newSelectedProducts.push(target.name) : newSelectedProducts.splice(indexValue, 1);
             this.setState({selectedProducts : newSelectedProducts})
-        } else {
-            this.setState({ [name]: value });
+        } else if ( target.type === 'number') {
+            this.setState({ [target.name]: target.value });
         }
-
-
 
     }
 
@@ -90,7 +88,7 @@ class ConnectedEditScreen extends Component {
 
     handleSubmit(event) {
         event.preventDefault();
-
+/* 
         console.log('state: ', this.state);
         console.log('store.getState(): ', store.getState());
 
@@ -102,7 +100,7 @@ class ConnectedEditScreen extends Component {
         // reset the state form values
         this.setState({...defaultStateResetForm});
         // reset the form HTML
-        document.getElementById('edit-form').reset();
+        document.getElementById('edit-form').reset(); */
 
     }
 
@@ -133,7 +131,7 @@ class ConnectedEditScreen extends Component {
         const buttonSubmit = <button type="submit" className="btn btn-success btn-lg" placeholder="Name">submit</button>
 
         return (
-            <div className="App">
+            <div className="App Edit">
                 <Navbar />
                 <div className="content-screen">
                     <img className='App-logo-name' src={require('../assets/bacalao-logo-with-name.svg')} alt="" />

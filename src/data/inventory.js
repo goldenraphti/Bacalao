@@ -3,7 +3,7 @@ const inventory = [
         'id' : '2018FFS',
         'type': 'shirt',
         'year': 2018,
-        'image': '2018FFS.jpg',
+        'image': '2018FFS.png',
         'name': 'Freedom for sale',
         'quantities': {
             'XS': 200,
@@ -31,7 +31,7 @@ const inventory = [
         'type': 'shirt',
         'year': 2018,
         'name': 'Freedom to move',
-        'image': '2018FTM.jpg',
+        'image': '2018FTM.png',
         'quantities': {
             'XS': 102,
             'S' : 560,
