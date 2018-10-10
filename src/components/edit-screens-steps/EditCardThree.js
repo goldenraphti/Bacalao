@@ -8,7 +8,7 @@ class EditCardThree extends Component {
     render() {
         
         return (
-            <form id='edit-form' className='card-shadow card'>
+            <div className="edit-three">
                 <h3>Edit</h3>
                 <div className="form-inputs-container">
                 
@@ -31,14 +31,7 @@ class EditCardThree extends Component {
                 </label>
 
                 </div>
-                <div className="buttons-bottom-section">
-                    <a href="" className="form-cancel-link">Cancel</a>
-                    {/* When submitting make sure every input is filled, and hopefully make sure that the same user did not send a change for the same item && size */}
-                    <button type="button" className="" placeholder=""  onClick={() => this.props.nextScreen(this.props.cardToDisplay)} >
-                        Next
-                    </button>
-                </div>
-            </form>
+            </div>
         );
     }
 }

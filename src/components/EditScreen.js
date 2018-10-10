@@ -18,6 +18,11 @@ const mapDispatchToProps = dispatch => {
     };
 };
 
+const mapStateToProps = (state) => {
+    console.log('state.inventory', state.inventory);
+    return { inventory: state.inventory };
+};
+
 const defaultStateResetForm = {
     year: 2018,
     size: undefined,
@@ -26,22 +31,26 @@ const defaultStateResetForm = {
     comments: '',
     user: '',
     cardToDisplay: EditCardOne,
-
-    isGoing: false,
+    selectedProducts: [],
 };
 
 class ConnectedEditScreen extends Component {
 
     constructor() {
         super();
-        this.state = {};
+        this.state = {
+            year: 2018,
+            size: undefined,
+            itemsType: [],
+            amount: undefined,
+            comments: '',
+            user: '',
+            cardToDisplay: EditCardOne,
+            selectedProducts: [],
+        };
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleInputChange = this.handleInputChange.bind(this);
-    }
-
-    componentWillMount() {
-        this.setState({...defaultStateResetForm});
     }
 
     handleChange(event) {
@@ -54,13 +63,18 @@ class ConnectedEditScreen extends Component {
         const value = target.type === 'checkbox' ? target.checked : target.value;
         const name = target.name;
     
-        console.log( 'inside handleInputChange', target.name , target.value , target.type, target.checked);
+        console.log( 'inside handleInputChange', target.name , target.value , target.type, target.checked, 'this.state.selectedProducts', this.state.selectedProducts);
         // if deciding itemsType, toggle clicked target from the state array
         if(target.name === 'shirt' || target.name === 'totebag') {
             let newItemsType = this.state.itemsType;
             const indexValue = newItemsType.findIndex( itemType => itemType === target.name);
             indexValue === -1 ? newItemsType.push(target.name) : newItemsType.splice(indexValue, 1);
             this.setState({itemsType : newItemsType})
+        } else if (target.type === 'checkbox') {
+            let newSelectedProducts = this.state.selectedProducts;
+            const indexValue = newSelectedProducts.findIndex( productId => productId === target.name);
+            indexValue === -1 ? newSelectedProducts.push(target.name) : newSelectedProducts.splice(indexValue, 1);
+            this.setState({selectedProducts : newSelectedProducts})
         } else {
             this.setState({ [name]: value });
         }
@@ -69,7 +83,10 @@ class ConnectedEditScreen extends Component {
 
     }
 
-
+    resetForm() {
+        console.log('resetting the form');
+        this.setState({...defaultStateResetForm});
+    }
 
     handleSubmit(event) {
         event.preventDefault();
@@ -91,8 +108,6 @@ class ConnectedEditScreen extends Component {
 
     // takes the current screen-card, hides it and displays the next screen-card
     nextScreen(currentCard) {
-        console.log('nextScreen function', currentCard);
-
         if (currentCard === EditCardOne) {
             this.setState({cardToDisplay: EditCardTwo})
         } else if (currentCard === EditCardTwo) {
@@ -100,34 +115,42 @@ class ConnectedEditScreen extends Component {
         } else if (currentCard === EditCardThree) {
             this.setState({cardToDisplay: EditCardFour})
         }
-        console.log( this.state.cardToDisplay, currentCard);
-        
+    }
+    // when clicked previous step button at bottom of edit form card
+    previousScreen(currentCard) {
+        if (currentCard === EditCardTwo) {
+            this.setState({cardToDisplay: EditCardOne})
+        } else if (currentCard === EditCardThree) {
+            this.setState({cardToDisplay: EditCardTwo})
+        } else if (currentCard === EditCardFour) {
+            this.setState({cardToDisplay: EditCardThree})
+        }
     }
 
     render() {
-        
+
+        const buttonNext = <button type="button" className="" placeholder=""  onClick={() => this.nextScreen(this.state.cardToDisplay)} >Next</button>;
+        const buttonSubmit = <button type="submit" className="btn btn-success btn-lg" placeholder="Name">submit</button>
+
         return (
             <div className="App">
                 <Navbar />
                 <div className="content-screen">
                     <img className='App-logo-name' src={require('../assets/bacalao-logo-with-name.svg')} alt="" />
-                    <form id='edit-form' className='card-shadow card'>
+                    <form id='edit-form' className='card-shadow card'  onSubmit={this.handleSubmit}>
                     {/* insert form progress bar component here */}
                     <this.state.cardToDisplay
                     {...this.props}
                     {...this.state}
                     handleChange = {this.handleChange}
-                    handleSubmit = {this.handleSubmit}
                     handleInputChange = {this.handleInputChange}
                     />
                     <div className="buttons-bottom-section">
-                        <a href="" className="form-cancel-link">Cancel</a>
+                        <a href="" className="form-cancel-link" onClick={() => this.resetForm()}>Cancel</a>
                         {/* When submitting make sure every input is filled, and hopefully make sure that the same user did not send a change for the same item && size */}
-                        <div class="form-navigation">
-                            <a href="" className="form-previous-step" >Previous</a>
-                            <button type="button" className="" placeholder=""  onClick={() => this.nextScreen(this.state.cardToDisplay)} >
-                                Next
-                            </button>
+                        <div className="form-navigation">
+                            { this.state.cardToDisplay === EditCardOne ? null : <a href="" className="form-previous-step" onClick={() => this.previousScreen(this.state.cardToDisplay)} >Previous</a>}
+                            { this.state.cardToDisplay !== EditCardFour ? buttonNext : buttonSubmit}
                         </div>
                     </div>
                 </form>
@@ -141,6 +164,6 @@ class ConnectedEditScreen extends Component {
  the first argument for connect must be null when mapStateToProps is absent
   like in the Form example. Otherwise you’ll get
    TypeError: dispatch is not a function */
-const EditScreen = connect(null, mapDispatchToProps)(ConnectedEditScreen);
+const EditScreen = connect(mapStateToProps, mapDispatchToProps)(ConnectedEditScreen);
 
 export default EditScreen;

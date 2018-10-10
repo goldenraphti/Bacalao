@@ -1,6 +1,3 @@
-form {
-}
-
 .form-inputs-container {
     max-width: 90vw;
     display: flex;
@@ -31,13 +28,13 @@ label {
     font-size: .8rem;
 }
 
-input:invalid + span:after {
+input:invalid+span:after {
     content: '✖';
     color: #f00;
     padding-left: 5px;
 }
 
-input:valid + span:after {
+input:valid+span:after {
     content: '✓';
     color: #26b72b;
     padding-left: 5px;
@@ -110,12 +107,12 @@ label.checkbox-icon p {
 }
 
 label.shirt {
-    background-image: url("../assets/shirt.svg");
+    background-image: url(../assets/shirt.svg);
     opacity: 0.6;
 }
 
 label.totebag {
-    background-image: url("../assets/totebag.svg");
+    background-image: url(../assets/totebag.svg);
     opacity: 0.6;
 }
 
@@ -123,4 +120,59 @@ label.checkbox-button input {
     width: 0;
     height: 0;
     display: none;
+}
+
+fieldset.checkboxes-productsSelected {
+    width: calc(90vw - 50px);
+    max-width: calc(90vw - 200px);
+    display: grid;
+    grid-gap: 10px;
+    grid-template-columns: repeat(auto-fill, minmax(80px, 200px));
+    /* grid-template-rows: 35vw; */
+    grid-auto-flow: row;
+    justify-content: space-evenly;
+    align-items: stretch;
+}
+
+fieldset label.checkbox-photo {
+    width: 100%;
+    background-size: 150%;
+    background-position: center;
+    background-repeat: no-repeat;
+    opacity: 0.7;
+}
+
+fieldset label.checkbox-photo:hover {
+    opacity: 0.9;
+}
+
+label.checkbox-photo.checked {
+    background-color: var(--palette-1-3-very-light);
+    border: 1px solid var(--palette-1-3);
+    opacity: 1;
+}
+
+.img2018FFS {
+    background-image: url(../assets/2018FFS.jpg);
+}
+
+.img2018FTETOT {
+    background: linear-gradient(rgba(255, 255, 255, 0) 70%, rgba(0, 0, 0, 0.9) 95%), url(../assets/2018FTETOT.png);
+    background-image: url(../assets/2018FTETOT.png);
+}
+
+.img2018FTL {
+    background-image: url(../assets/2018FTL.png);
+}
+
+.img2018FTM {
+    background-image: url(../assets/2018FTM.jpg);
+}
+
+.img2018FTRTOT {
+    background-image: url(../assets/2018FTRTOT.png);
+}
+
+label.checkbox-photo p {
+    visibility: hidden;
 }

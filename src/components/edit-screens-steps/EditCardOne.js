@@ -12,10 +12,6 @@ class EditCardOne extends Component {
     componentWillUnmount() {
     }
 
-    styleIfChecked(label) {
-        label
-    }
-
     render() {
         
         return (
