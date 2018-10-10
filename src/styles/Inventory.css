@@ -5,6 +5,9 @@ div.inventory-content {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
+    overflow-y: scroll;
+    position: absolute;
+    top: 0;
 }
 
 div.inventory-content > div {
@@ -52,8 +55,9 @@ div.card-product {
                         "title title"
                         "type year"
                         "sizes total";
-    grid-template-rows:    3fr 1fr 1fr 1fr;
+    grid-template-rows:    4fr 1fr 1fr 1fr;
     grid-template-columns: 3fr 2fr;
+    align-items: center;
     text-align: center;
 }
 
@@ -63,6 +67,10 @@ div.card-product {
 
 .item-name {
     grid-area: title;
+}
+
+div.card-product p {
+    margin: 0;
 }
 
 .item-type {
@@ -77,6 +85,11 @@ div.card-product {
     grid-area: sizes;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
+    font-size: 0.8em;
+}
+
+.item-sizes p {
+    margin: 2px;
 }
 
 .item-total {
