@@ -1,9 +1,9 @@
 // src/js/components/Form.js
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import {  addItems, removeItems, logChange } from "../actions/actionCreators";
+import {  addItems, removeItems, logChange } from "../../actions/actionCreators";
 import '../styles/Form.css';
-import store from "../store";
+import store from "../../store";
 
 const mapDispatchToProps = dispatch => {
     return {
