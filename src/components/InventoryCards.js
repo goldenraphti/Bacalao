@@ -4,6 +4,7 @@ import React, { Component } from 'react';
 class InventoryCards extends Component {
   componentDidMount() {
     console.log('inside InventoryCards', this.props);
+    this.totalSizes(this.props.inventory[1].quantities)
   }
 
   filterItemTypes(inventory) {
@@ -12,6 +13,11 @@ class InventoryCards extends Component {
     return types;
   }
 
+  totalSizes(itemQuantities) {
+      let total = 0;
+      Object.values(itemQuantities).map( sizeQuantity => total = total + sizeQuantity);
+      return total;
+  }
 
   render() {
     return (
@@ -44,20 +50,17 @@ class InventoryCards extends Component {
                 </form>
             </div>
             <div className="inventory-cards">
-                {this.props.itemType} | {this.props.sortBy}
                 {this.props.inventory.filter( item => item.type === this.props.itemType || this.props.itemType === 'all').map( item => (
-                    <div className="card-product">
-                        {/* <img src="" alt=""/> */}
-                        <div className="item-details">
-                            <h4>{item.name}</h4>
-                            <p>{item.year}</p>
-                            <div className="item-type-total">
-                                <p className="details-type">{item.type}</p>
-                                {/* <p className="details-total">{item}</p> */}
-                            </div>
-                            <div className="item-sizes">
-
-                            </div>
+                    <div className="card-product card-shadow">
+                        <img src={require("../assets/FTE.jpg")} className="item-image" alt=""/>
+                        <h4 className="item-name">{item.name}</h4>
+                        <p className="item-type">{item.type}</p>
+                        <p className="item-year">{item.year}</p>
+                        <p className="item-total">{this.totalSizes(item.quantities)}</p>
+                        <div className="item-sizes">
+                            {Object.keys(item.quantities).map( size => (
+                                <p className="item-size-single" key={size}>{size}-{item.quantities[size]}</p>
+                            ))}
                         </div>
                     </div>
                 ))}

@@ -23,7 +23,9 @@ class Navbar extends Component {
                             <div className="nav-link">
                                 <Link className="nav-a-link" to="/edit">
                                 <img className='' src={require('../assets/edit-3.svg')} alt="" />
-                                Edit
+                                <p>
+                                    Edit
+                                </p>
                                 </Link>
                             </div>
                            </li>
@@ -31,7 +33,9 @@ class Navbar extends Component {
                                <div className="nav-link">
                                 <Link className="nav-a-link" to="/inventory">
                                 <img className='' src={require('../assets/inventory.svg')} alt="" />
-                                Inventory
+                                <p>
+                                    Inventory
+                                </p>
                                 </Link>
                             </div>
                            </li>
@@ -39,7 +43,9 @@ class Navbar extends Component {
                                <div className="nav-link">
                                 <Link className="nav-a-link" to="/logs">
                                 <img className='' src={require('../assets/logs.svg')} alt="" />
-                                Logs
+                                <p>
+                                    Logs
+                                </p>
                                 </Link>
                             </div>
                            </li>

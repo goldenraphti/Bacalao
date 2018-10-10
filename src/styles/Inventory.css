@@ -32,6 +32,57 @@ form.inventory-sorting {
     justify-content: flex-start;
 }
 
+.inventory-cards {
+    display: grid;
+    grid-gap: 10px;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 300px) ) ;
+    /* grid-template-rows: 35vw; */
+    grid-auto-flow: row;
+    justify-content: space-evenly;
+
+}
+
+div.card-product {
+    background: #fff;
+    padding: 5px;
+    margin: 5px;
+    border-radius: 5px;    
+    display: grid;
+    grid-template-areas:"photo photo"
+                        "title title"
+                        "type year"
+                        "sizes total";
+    grid-template-rows:    3fr 1fr 1fr 1fr;
+    grid-template-columns: 3fr 2fr;
+    text-align: center;
+}
+
+.item-image {
+    grid-area: photo;
+}
+
+.item-name {
+    grid-area: title;
+}
+
+.item-type {
+    grid-area: type;
+}
+
+.item-year {
+    grid-area: year;
+}
+
+.item-sizes {
+    grid-area: sizes;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.item-total {
+    grid-area: total;
+}
+
 @media only screen and (min-width: 900px) {
     div.inventory-content {
         width: calc(100vw - var(--navbar-desktop-width));

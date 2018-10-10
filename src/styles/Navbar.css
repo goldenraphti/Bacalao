@@ -37,7 +37,6 @@ nav a {
     display: flex;
     flex-direction: column;
     align-items: center;
-    opacity: 0.7;
 }
 
 nav a:visited {
@@ -58,18 +57,20 @@ nav li:first-of-type img.logo.only-desktop {
     width: 50px;
 }
 
-nav li p.only-mobile {
+nav li p {
     margin: 0;
     padding: 0;
+    opacity: 0.7;
 }
 
 nav li img {
     width: 23px;
     margin: 5px 0;
+    opacity: 1;
 }
 
 img.icon-small {
-    width: 17px;;
+    width: 20px;;
 }
 
 
@@ -99,6 +100,7 @@ img.icon-small {
     nav li img {
         width: 27px;
         margin: 10px 0;
+        opacity: 0.7;
     }
       
   }
