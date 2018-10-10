@@ -77,7 +77,7 @@ img.icon-small {
 
     nav {
         min-height: 100vh;
-        width: var(--navbar-desktop-width);
+        width: var(--navbar-tablet-width);
         left: 0;
         bottom: 0;
     }
@@ -99,6 +99,47 @@ img.icon-small {
     nav li img {
         width: 27px;
         margin: 10px 0;
+    }
+      
+  }
+
+  @media only screen and (min-width: 1100px) {
+
+    nav {
+        width: var(--navbar-desktop-width);
+    }
+
+    nav a:hover {
+        opacity: 0.9;
+    }
+
+    nav > ul > li {
+        margin: 10px 0;
+    }
+
+    nav > ul > li:first-of-type {
+        margin: 20px 0;
+    }
+
+    nav > ul > li:first-of-type a {
+        justify-content: center;;
+    }
+
+    nav > ul > li:nth-child(2) {
+        margin: 40px 0 10px;
+    }
+
+    nav a {
+        flex-direction: row;
+        justify-content: flex-start;
+        font-weight: 400;
+        width: calc(var(--navbar-desktop-width) - 40px);
+
+    }
+
+    nav li img {
+        min-width: 23px;
+        margin: 0 10px;
     }
       
   }

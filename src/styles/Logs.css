@@ -227,12 +227,12 @@ ul.product-sizes {
     .log-screen .content-screen {
         flex-direction: row;
         align-items: flex-start;
-        margin-left: var(--navbar-desktop-width);
+        margin-left: var(--navbar-tablet-width);
         margin-bottom: 0;
     }
   
     .LogsPreviewList {
-        width: var(--logs-preview-width-desktop);
+        width: var(--logs-preview-width-tablet);
         box-shadow: 2px  0 2px 0px var(--light-grey);
         z-index: 1;
         max-height: 100vh;
@@ -240,23 +240,40 @@ ul.product-sizes {
     }
 
     .LogDisplayed {
-        width: calc(100vw - var(--navbar-desktop-width) - var(--logs-preview-width-desktop));
+        width: calc(100vw - var(--navbar-tablet-width) - var(--logs-preview-width-tablet));
         height: 100vh;        
         z-index: 0;
         position: relative;
         background: var(--light-light-grey);
-        margin-left: var(--logs-preview-width-desktop);
-        max-width: calc( 100vw - var(--navbar-desktop-width) - var(--logs-preview-width-desktop));
+        margin-left: var(--logs-preview-width-tablet);
+        max-width: calc( 100vw - var(--navbar-tablet-width) - var(--logs-preview-width-tablet));
         max-height: 100vh;
         overflow-y: scroll;
     }
 
     .displayed-card {
-        width: calc(100vw - var(--navbar-desktop-width) - var(--logs-preview-width-desktop) - 10vw);
+        width: calc(100vw - var(--navbar-tablet-width) - var(--logs-preview-width-tablet) - 10vw);
         background-color: #fff;
         border: 1px solid var(--light-grey);
         border-radius: 5px;
         margin: 40px 0;
+    }
+  
+  }
+
+  @media only screen and (min-width: 1100px) {
+
+    .log-screen .content-screen {
+        margin-left: var(--navbar-desktop-width);
+    }
+
+    .LogDisplayed {
+        width: calc(100vw - var(--navbar-desktop-width) - var(--logs-preview-width-tablet));
+        max-width: calc( 100vw - var(--navbar-desktop-width) - var(--logs-preview-width-tablet));
+    }
+
+    .displayed-card {
+        width: calc(100vw - var(--navbar-desktop-width) - var(--logs-preview-width-tablet) - 10vw);
     }
   
   }

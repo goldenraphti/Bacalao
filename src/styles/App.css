@@ -82,8 +82,10 @@ margin: 0;
   
   --navbar-height: 50px;
   --navbar-mobile-height: 70px;
-  --navbar-desktop-width: 100px;
+  --navbar-tablet-width: 100px;
+  --navbar-desktop-width: 160px;
   --tool-buttons-height-width: 75px;
+  --logs-preview-width-tablet: 25vw;
   --logs-preview-width-desktop: 25vw;
 
   
@@ -265,8 +267,8 @@ button:active {
   }
 
   .content-screen {
-    width: calc( 100vw - var(--navbar-desktop-width));
-    margin-left: var(--navbar-desktop-width);
+    width: calc( 100vw - var(--navbar-tablet-width));
+    margin-left: var(--navbar-tablet-width);
   }
 
   .only-desktop {
@@ -275,6 +277,14 @@ button:active {
 
   .only-mobile {
       display: none;
+  }
+
+}
+
+@media only screen and (min-width: 1100px) {
+  .content-screen {
+    width: calc( 100vw - var(--navbar-desktop-width));
+    margin-left: var(--navbar-desktop-width);
   }
 
 }

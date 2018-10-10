@@ -31,7 +31,7 @@ class ConnectedLogsScreen extends Component {
 
   /* handleResize to update layout depending if mobile or desktop,
   so hide or display LogsPreviewList when LogDisplyed is displayed */
-  handleResize() {
+  handleResize = () => {
     this.setState({ windowWidth: window.innerWidth });
     console.log(this.state);
   }
