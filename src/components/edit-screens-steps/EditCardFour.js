@@ -18,6 +18,11 @@ class EditCardFour extends Component {
                     </label>
 
                     <label>
+                        <p>Concert:</p>
+                        <input type="text" id="concert" value={this.props.value} onChange={this.props.handleChange} />
+                    </label>
+
+                    <label>
                         <p>Comments:</p>
                         <textarea type="textarea" id="comments" value={this.props.value} onChange={this.props.handleChange} placeholder="e.g.: Concert Ibey - entrance door" />
                     </label>

@@ -7,6 +7,7 @@ class LogsPreviewList extends Component {
 
 
   componentDidMount() {
+    console.log('logs from previewList', this.props.logs);
   }
 
 
@@ -25,7 +26,7 @@ class LogsPreviewList extends Component {
                   </p>
                   </div>
                   <div className="log-preview-right dark">
-                  {el.productsSold.total}
+                  {this.props.totalQuantityLog(el)}
                   </div>
                 </button>
               </li>

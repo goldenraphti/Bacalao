@@ -1,6 +1,7 @@
 // src/js/components/Form.js
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import uuidv1 from "uuid";
 import {  addItems, removeItems, logChange } from "../actions/actionCreators";
 import '../styles/Form.css';
 import store from "../store";
@@ -19,15 +20,12 @@ const mapDispatchToProps = dispatch => {
 };
 
 const mapStateToProps = (state) => {
-    console.log('state.inventory', state.inventory);
     return { inventory: state.inventory };
 };
 
 const defaultStateResetForm = {
-    year: 2018,
-    size: undefined,
     itemsType: [],
-    amount: undefined,
+    concert: '',
     comments: '',
     user: '',
     cardToDisplay: EditCardOne,
@@ -39,10 +37,8 @@ class ConnectedEditScreen extends Component {
     constructor() {
         super();
         this.state = {
-            year: 2018,
-            size: undefined,
             itemsType: [],
-            amount: undefined,
+            concert: '',
             comments: '',
             user: '',
             cardToDisplay: EditCardOne,
@@ -76,7 +72,8 @@ class ConnectedEditScreen extends Component {
             const productIdSize = target.name.split('-');
             const productId = productIdSize[0];
             const size = productIdSize[1];
-            const sizeQuantity = { [size] : target.value };
+            const sizeQuantity = { [size] : -Math.abs(Number(target.value)) };
+            console.log(this.state);
             let constSizeQuantityExtended = {...this.state[productId], ...sizeQuantity};
             this.setState({ [productId] : constSizeQuantityExtended });
         }
@@ -91,26 +88,45 @@ class ConnectedEditScreen extends Component {
     handleSubmit(event) {
         event.preventDefault();
 
-        console.log('state: ', this.state, 'event.type', event.type,);
-        console.log('store.getState(): ', store.getState());
-
-
-        if ( event.type === 'submit') {
-            // do ADD_ITEMS for each product-size iterating through each key-entry in this.state
-            Object.keys(this.state).filter(stateKey => this.state.selectedProducts.includes(stateKey)).map( id => console.log('id', id, 'this.state.id', this.state[id], 'Object.keys(this.state[id])', Object.keys(this.state[id]).map(size => this.props.addItems( id ,  {[size]: Number(this.state[id][size]) }) ) ));
+        // do ADD_ITEMS for each product-size iterating through each key-entry in this.state
+        Object.keys(this.state).filter(stateKey => this.state.selectedProducts.includes(stateKey)).map( id => console.log('id', id, 'this.state.id', this.state[id], 'Object.keys(this.state[id])', Object.keys(this.state[id]).map(size => this.props.addItems( id ,  {[size]: this.state[id][size] }) ) ));
 
         // do NEW_LOG compiling infos from this.state, especially the keys-sizes > quantity
-
-/*         // dispatch actions logs + add/remove items
-        this.props.addItems(`${this.state.year}${this.state.item}` , { [this.state.size] : Number(this.state.amount)});
+        // creates unique ID for each new log
+        const id = uuidv1();
         const date = new Date().toISOString();
-        this.props.logChange(date, this.state.user, this.state.comments, `${this.state.year}${this.state.item}`, { [this.state.size] : this.state.amount} );
+
+        // creates the big nested productsSold object
+        let productsSold;
+        Object.keys(this.state).filter(stateKey => this.state.selectedProducts.includes(stateKey)).map( productId => console.log('productId', productId, 'this.state.productId', this.state[productId], 'Object.keys(this.state[productId])', Object.keys(this.state[productId] ) ));
+        Object.keys(this.state).filter(stateKey => this.state.selectedProducts.includes(stateKey)).map( productId => {
+            let quantities = {};
+            quantities = { ...this.state[productId]};
+            console.log('quantities', quantities);
+            let quantityParent = {};
+            quantityParent = { quantities: quantities};
+            console.log('quantityParent', quantityParent)
+            const newProductSold = { [productId] : quantityParent }
+            console.log('newProductSold', newProductSold);
+            productsSold =  { ...productsSold, ...newProductSold };
+            console.log('temporary productsSold', productsSold);
+        } );
+
+        const objectToSend = {
+            date: date,
+            user : this.state.user,
+            id: id,
+            concert: this.state.concert,
+            comments: this.state.comments,
+            productsSold: productsSold };
+        console.log(objectToSend);
+
+        this.props.logChange(objectToSend);
         
         // reset the state form values
         this.setState({...defaultStateResetForm});
         // reset the form HTML
-        document.getElementById('edit-form').reset(); */
-        }
+        document.getElementById('edit-form').reset();
 
     }
 

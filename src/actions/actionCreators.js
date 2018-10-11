@@ -1,12 +1,8 @@
 // log last change made in journal
-export function logChange(date, user, comments, id, sizeQuantityChange) {
+export function logChange(logAction) {
     return {
         type: 'NEW_LOG',
-        date,
-        user,
-        comments,
-        id,
-        sizeQuantityChange
+        logAction,
     }
 }
 

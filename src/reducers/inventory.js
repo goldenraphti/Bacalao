@@ -12,7 +12,7 @@ function modifyQuantity(state=[], action) {
             const i = state.findIndex( stateItem =>  stateItem.id === action.id);
             const sizeName= Object.keys(action.sizeQuantity);
             console.log(i, sizeName , state[i] , state[i].quantities[sizeName] );
-            const newAmountAfterSubstraction = state[i].quantities[sizeName] - action.sizeQuantity[sizeName];
+            const newAmountAfterSubstraction = state[i].quantities[sizeName] + action.sizeQuantity[sizeName];
             console.log('amountt before substraction', state[i].quantities[sizeName]  , 'value to substract' , action.sizeQuantity[sizeName] , 'calcul newAmountAfterSubstraction', newAmountAfterSubstraction);
             const newItemModified = {...state[i], quantities : {...state[i].quantities, [sizeName]: newAmountAfterSubstraction} };
             console.log('newItemModified', newItemModified);

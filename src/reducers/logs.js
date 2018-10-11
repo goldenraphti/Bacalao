@@ -10,13 +10,15 @@ function logs(state=[], action) {
     switch(action.type) {
         case 'NEW_LOG' :
             // update incremented like photo
-            console.log('logging last change', state, action);
+            console.log('logging last change', state, action , action.logAction);
+
             return [...state, {
-                comments: action.comments,
-                date: action.date,
-                id: action.id,
-                sizeQuantityChange: action.sizeQuantityChange,
-                user: action.user
+                date: action.logAction.date,
+                user: action.logAction.user,
+                id: action.logAction.id,
+                concert: action.logAction.concert,
+                comments: action.logAction.comments,
+                productsSold: action.logAction.productsSold,
             }];
             
         default: 

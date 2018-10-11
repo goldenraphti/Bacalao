@@ -64,14 +64,14 @@ class LogDisplayed extends Component {
             {Object.keys(log.productsSold).filter(item => item !== 'total').map(item =>  (
               <div key={item} className="product-details">
               <p>{item}</p>
-              <p>{log.productsSold[item].name}</p>
-              <p>{log.productsSold[item].type}</p>
+              <p>{this.props.fetchInfoFromInventory(item , 'name' )}</p>
+              <p>{this.props.fetchInfoFromInventory(item , 'type' )}</p>
               {/* display sizes sold, filtering so not display for totebag (because Size Universal) */}
               <ul className="product-sizes">{log.productsSold[item].type === 'totebag' ? null : Object.keys(log.productsSold[item].quantities).filter(size => size !== 'total').map( size => (
                   <li key={size}>{size}:{log.productsSold[item].quantities[size]}</li>
                 ))}
                 </ul>
-                <p>{log.productsSold[item].type === 'totebag' ? log.productsSold[item].quantities.SU : log.productsSold[item].quantities.total}</p>
+                <p>{this.props.totalSizes(log.productsSold[item].quantities)}</p>
               </div>)
             )}
             <div className="product-details log-total">
@@ -79,7 +79,7 @@ class LogDisplayed extends Component {
               <p></p>
               <p></p>
               <p>Total</p>
-              <p>{log.productsSold.total}</p>
+              <p>{this.props.totalQuantityLog(log)}</p>
             </div>
           </div>
         </div>
