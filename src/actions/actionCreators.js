@@ -12,20 +12,21 @@ export function logChange(date, user, comments, id, sizeQuantityChange) {
 
 
 // add items to inventory
-export function addItems(id , sizeQuantityChange) {
+export function addItems(id ,  sizeQuantity) {
     return {
         type: 'ADD_ITEMS',
         id,
-        sizeQuantityChange
+        sizeQuantity,
     }
 }
 
 
 // remove items from inventory
-export function removeItems(id , sizeQuantityChange) {
+export function removeItems(id , size, quantity) {
     return {
         type: 'REMOVE_ITEMS',
         id,
-        sizeQuantityChange
+        size,
+        quantity,
     }
 }

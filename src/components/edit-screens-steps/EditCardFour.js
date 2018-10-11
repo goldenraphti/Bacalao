@@ -7,19 +7,21 @@ class EditCardFour extends Component {
     render() {
         
         return (
-            <div className="edit-four">
-                <h3>Edit</h3>
-                <div className="form-inputs-container">
+            <div className="card-four">
+                <h3>Name and comments</h3>
+
+                <div className="card-four-inputs">
                 
                     <label>
-                        Comments:
-                        <textarea type="text" id="comments" value={this.props.value} onChange={this.props.handleChange} placeholder="e.g.: Concert Ibey - entrance door" />
+                        <p>Name:</p>
+                        <input type="text" id="user" value={this.props.value} onChange={this.props.handleChange} />
                     </label>
 
                     <label>
-                        Name:
-                        <input type="text" id="user" value={this.props.value} onChange={this.props.handleChange} />
+                        <p>Comments:</p>
+                        <textarea type="textarea" id="comments" value={this.props.value} onChange={this.props.handleChange} placeholder="e.g.: Concert Ibey - entrance door" />
                     </label>
+
                 </div>
             </div>
         );

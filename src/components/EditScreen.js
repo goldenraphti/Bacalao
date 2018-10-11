@@ -60,10 +60,7 @@ class ConnectedEditScreen extends Component {
 
     handleInputChange(event) {
         const target = event.target;
-        const value = target.type === 'checkbox' ? target.checked : target.value;
-        const name = target.name;
 
-        console.log( 'inside handleInputChange', target.name , target.value ,'new sizes', this.state);
         // if deciding itemsType, toggle clicked target from the state array
         if(target.name === 'shirt' || target.name === 'totebag') {
             let newItemsType = this.state.itemsType;
@@ -76,7 +73,12 @@ class ConnectedEditScreen extends Component {
             indexValue === -1 ? newSelectedProducts.push(target.name) : newSelectedProducts.splice(indexValue, 1);
             this.setState({selectedProducts : newSelectedProducts})
         } else if ( target.type === 'number') {
-            this.setState({ [target.name]: target.value });
+            const productIdSize = target.name.split('-');
+            const productId = productIdSize[0];
+            const size = productIdSize[1];
+            const sizeQuantity = { [size] : target.value };
+            let constSizeQuantityExtended = {...this.state[productId], ...sizeQuantity};
+            this.setState({ [productId] : constSizeQuantityExtended });
         }
 
     }
@@ -88,11 +90,18 @@ class ConnectedEditScreen extends Component {
 
     handleSubmit(event) {
         event.preventDefault();
-/* 
-        console.log('state: ', this.state);
+
+        console.log('state: ', this.state, 'event.type', event.type,);
         console.log('store.getState(): ', store.getState());
 
-        // dispatch actions logs + add/remove items
+
+        if ( event.type === 'submit') {
+            // do ADD_ITEMS for each product-size iterating through each key-entry in this.state
+            Object.keys(this.state).filter(stateKey => this.state.selectedProducts.includes(stateKey)).map( id => console.log('id', id, 'this.state.id', this.state[id], 'Object.keys(this.state[id])', Object.keys(this.state[id]).map(size => this.props.addItems( id ,  {[size]: Number(this.state[id][size]) }) ) ));
+
+        // do NEW_LOG compiling infos from this.state, especially the keys-sizes > quantity
+
+/*         // dispatch actions logs + add/remove items
         this.props.addItems(`${this.state.year}${this.state.item}` , { [this.state.size] : Number(this.state.amount)});
         const date = new Date().toISOString();
         this.props.logChange(date, this.state.user, this.state.comments, `${this.state.year}${this.state.item}`, { [this.state.size] : this.state.amount} );
@@ -101,6 +110,7 @@ class ConnectedEditScreen extends Component {
         this.setState({...defaultStateResetForm});
         // reset the form HTML
         document.getElementById('edit-form').reset(); */
+        }
 
     }
 
@@ -127,8 +137,8 @@ class ConnectedEditScreen extends Component {
 
     render() {
 
-        const buttonNext = <button type="button" className="" placeholder=""  onClick={() => this.nextScreen(this.state.cardToDisplay)} >Next</button>;
-        const buttonSubmit = <button type="submit" className="btn btn-success btn-lg" placeholder="Name">submit</button>
+        const buttonNext = <button type="button" className={ this.state.cardToDisplay === EditCardFour ? "hidden" : null } placeholder=""  onClick={() => this.nextScreen(this.state.cardToDisplay)} >Next</button>;
+        const buttonSubmit = <button type="submit" className={ this.state.cardToDisplay !== EditCardFour ? "hidden" : null }>submit</button>
 
         return (
             <div className="App Edit">
@@ -148,7 +158,9 @@ class ConnectedEditScreen extends Component {
                         {/* When submitting make sure every input is filled, and hopefully make sure that the same user did not send a change for the same item && size */}
                         <div className="form-navigation">
                             { this.state.cardToDisplay === EditCardOne ? null : <a href="" className="form-previous-step" onClick={() => this.previousScreen(this.state.cardToDisplay)} >Previous</a>}
-                            { this.state.cardToDisplay !== EditCardFour ? buttonNext : buttonSubmit}
+                            {/* { this.state.cardToDisplay !== EditCardFour ? buttonNext : buttonSubmit} */}
+                            {buttonNext}
+                            {buttonSubmit}
                         </div>
                     </div>
                 </form>

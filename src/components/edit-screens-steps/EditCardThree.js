@@ -4,9 +4,8 @@ import '../../styles/Form.css';
 
 class EditCardThree extends Component {
 
-
     render() {
-        
+
         return (
             <div className="card-three">
                 <h3>Sizes and quantities</h3>
@@ -33,17 +32,11 @@ class EditCardThree extends Component {
                             ))}
                         </div>
                     </div>
-                ) )
-                
-
-                }
-                
-                </fieldset>  
-
+                ))}
+                </fieldset>
             </div>
         );
     }
 }
-
 
 export default EditCardThree;
