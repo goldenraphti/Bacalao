@@ -16,6 +16,11 @@
     margin-bottom: var(--navbar-mobile-height);
 }
 
+ul.column-list {
+    display: flex;
+    flex-direction: column-reverse;
+}
+
 li.log-card {
     border: 1px solid var(--light-light-grey);
     border-left: 4px solid var(--light-light-grey);
@@ -48,6 +53,7 @@ li.card-header {
     display: flex;
     justify-content: space-around;
     align-items: center;
+    order: 10;
 }
 
 li.logs-preview {
@@ -180,6 +186,7 @@ div.close-line-2 {
     align-items: center;
     justify-content: space-between;
     font-weight: 700;
+    font-size: 0.9em;
 }
 
 .log-details-part:last-of-type {
@@ -207,6 +214,14 @@ div.close-line-2 {
     padding:10px 0;
     font-weight: 600;
     color: var(--light-dark-grey);
+}
+
+.log-displayed-user {
+    font-size: 1em;
+}
+
+.log-displayed-id {
+    font-size: 0.8em;
 }
 
 ul.product-sizes {

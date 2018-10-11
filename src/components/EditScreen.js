@@ -153,7 +153,7 @@ class ConnectedEditScreen extends Component {
 
     render() {
 
-        const buttonNext = <button type="button" className={ this.state.cardToDisplay === EditCardFour ? "hidden" : null } placeholder=""  onClick={() => this.nextScreen(this.state.cardToDisplay)} >Next</button>;
+        const buttonNext = <button type="button" className={ this.state.cardToDisplay === EditCardFour ? "hidden" : null } placeholder=""  onClick={() => this.nextScreen(this.state.cardToDisplay)} >Next<span className="next-arrow moving-arrow">〉</span></button>;
         const buttonSubmit = <button type="submit" className={ this.state.cardToDisplay !== EditCardFour ? "hidden" : null }>submit</button>
 
         return (
@@ -173,7 +173,7 @@ class ConnectedEditScreen extends Component {
                         <a href="" className="form-cancel-link" onClick={() => this.resetForm()}>Cancel</a>
                         {/* When submitting make sure every input is filled, and hopefully make sure that the same user did not send a change for the same item && size */}
                         <div className="form-navigation">
-                            { this.state.cardToDisplay === EditCardOne ? null : <a href="" className="form-previous-step" onClick={() => this.previousScreen(this.state.cardToDisplay)} >Previous</a>}
+                            { this.state.cardToDisplay === EditCardOne ? null : <a href="" className="form-previous-step" onClick={() => this.previousScreen(this.state.cardToDisplay)} ><span className="previous-arrow moving-arrow">〈</span>Previous</a>}
                             {/* { this.state.cardToDisplay !== EditCardFour ? buttonNext : buttonSubmit} */}
                             {buttonNext}
                             {buttonSubmit}
