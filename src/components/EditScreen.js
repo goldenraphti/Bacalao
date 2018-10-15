@@ -50,7 +50,6 @@ class ConnectedEditScreen extends Component {
     }
 
     handleChange(event) {
-        console.log('handleChange: ', event.target.id, event.target.value)
         this.setState({ [event.target.id]: event.target.value });
     }
 
@@ -73,7 +72,6 @@ class ConnectedEditScreen extends Component {
             const productId = productIdSize[0];
             const size = productIdSize[1];
             const sizeQuantity = { [size] : -Math.abs(Number(target.value)) };
-            console.log(this.state);
             let constSizeQuantityExtended = {...this.state[productId], ...sizeQuantity};
             this.setState({ [productId] : constSizeQuantityExtended });
         }
@@ -102,14 +100,10 @@ class ConnectedEditScreen extends Component {
         Object.keys(this.state).filter(stateKey => this.state.selectedProducts.includes(stateKey)).map( productId => {
             let quantities = {};
             quantities = { ...this.state[productId]};
-            console.log('quantities', quantities);
             let quantityParent = {};
             quantityParent = { quantities: quantities};
-            console.log('quantityParent', quantityParent)
             const newProductSold = { [productId] : quantityParent }
-            console.log('newProductSold', newProductSold);
             productsSold =  { ...productsSold, ...newProductSold };
-            console.log('temporary productsSold', productsSold);
         } );
 
         const objectToSend = {
@@ -174,7 +168,6 @@ class ConnectedEditScreen extends Component {
                         {/* When submitting make sure every input is filled, and hopefully make sure that the same user did not send a change for the same item && size */}
                         <div className="form-navigation">
                             { this.state.cardToDisplay === EditCardOne ? null : <a href="" className="form-previous-step" onClick={() => this.previousScreen(this.state.cardToDisplay)} ><span className="previous-arrow moving-arrow">〈</span>Previous</a>}
-                            {/* { this.state.cardToDisplay !== EditCardFour ? buttonNext : buttonSubmit} */}
                             {buttonNext}
                             {buttonSubmit}
                         </div>

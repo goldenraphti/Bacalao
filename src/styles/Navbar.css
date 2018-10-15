@@ -15,6 +15,7 @@ nav {
     z-index: 20;
     position: fixed;
     font-family: 'PT Sans', sans-serif;
+    overflow: hidden;
 }
 
 nav > ul {

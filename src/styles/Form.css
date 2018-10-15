@@ -9,6 +9,13 @@
     top: 0;
 }
 
+.Edit .content-screen {
+    width: 100vw;
+    overflow-y: scroll;
+    position: absolute;
+    top: 0;
+}
+
 .Edit h3 {
     font-weight: 300;
     text-transform: capitalize;
@@ -138,19 +145,16 @@ label.checkbox-button input {
 }
 
 fieldset.checkboxes-productsSelected {
-    width: calc(90vw - 50px);
-    max-width: calc(90vw - 200px);
-    display: grid;
+    /* display: grid; */
     grid-gap: 10px;
-    grid-template-columns: repeat(auto-fill, minmax(80px, 200px));
+    grid-template-columns: repeat(auto-fill, minmax(200px, 300px) ) ;
     /* grid-template-rows: 35vw; */
     grid-auto-flow: row;
     justify-content: space-evenly;
-    align-items: stretch;
 }
 
 fieldset label.checkbox-photo {
-    width: 100%;
+    /* width: 100%; */
     background-size: 150%;
     background-position: center;
     background-repeat: no-repeat;
@@ -288,3 +292,21 @@ label.checkbox-photo p {
 .card-four-inputs textarea {
     height: 10vh;
 }
+
+@media only screen and (min-width: 900px) {
+
+    .Edit .content-screen {
+        max-width: calc(100vw - var(--navbar-tablet-width ) - 2vw);
+        width: calc(100vw - var(--navbar-tablet-width ));
+    }
+  
+}
+  
+@media only screen and (min-width: 1100px) {
+    .Edit .content-screen {
+        max-width: calc(100vw - var(--navbar-desktop-width ) - 2vw);
+        width: calc(100vw - var(--navbar-desktop-width ));
+    }
+  
+}
+
