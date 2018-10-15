@@ -8,6 +8,7 @@ import EditCardOne from './edit-screens-steps/EditCardOne';
 import EditCardTwo from './edit-screens-steps/EditCardTwo';
 import EditCardThree from './edit-screens-steps/EditCardThree';
 import EditCardFour from './edit-screens-steps/EditCardFour';
+import EditCardSuccess from './edit-screens-steps/EditCardSuccess';
 
 const mapDispatchToProps = dispatch => {
     return {
@@ -114,9 +115,11 @@ class ConnectedEditScreen extends Component {
         console.log(objectToSend);
 
         this.props.logChange(objectToSend);
+
+        this.setState({cardToDisplay: EditCardSuccess})
         
         // reset the state form values
-        this.setState({...defaultStateResetForm});
+        // this.setState({...defaultStateResetForm});
         // reset the form HTML
         document.getElementById('edit-form').reset();
 
@@ -160,6 +163,7 @@ class ConnectedEditScreen extends Component {
                     handleChange = {this.handleChange}
                     handleInputChange = {this.handleInputChange}
                     />
+                    { this.state.cardToDisplay === EditCardSuccess ? null :
                     <div className="buttons-bottom-section">
                         <a href="" className="form-cancel-link" onClick={() => this.resetForm()}>Cancel</a>
                         {/* When submitting make sure every input is filled, and hopefully make sure that the same user did not send a change for the same item && size */}
@@ -169,6 +173,7 @@ class ConnectedEditScreen extends Component {
                             {buttonSubmit}
                         </div>
                     </div>
+                }
                 </form>
                 </div>
             </div>
