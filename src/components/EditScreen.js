@@ -9,6 +9,7 @@ import EditCardTwo from './edit-screens-steps/EditCardTwo';
 import EditCardThree from './edit-screens-steps/EditCardThree';
 import EditCardFour from './edit-screens-steps/EditCardFour';
 import EditCardSuccess from './edit-screens-steps/EditCardSuccess';
+import EditProgressBar from './edit-screens-steps/EditProgressBar';
 
 const mapDispatchToProps = dispatch => {
     return {
@@ -156,7 +157,10 @@ class ConnectedEditScreen extends Component {
                 <div className="content-screen">
                     <img className='App-logo-name' src={require('../assets/bacalao-logo-with-name.svg')} alt="" />
                     <form id='edit-form' className='card-shadow card'  onSubmit={this.handleSubmit}>
-                    {/* insert form progress bar component here */}
+                    <EditProgressBar
+                    {...this.props}
+                    {...this.state}
+                    />
                     <this.state.cardToDisplay
                     {...this.props}
                     {...this.state}
