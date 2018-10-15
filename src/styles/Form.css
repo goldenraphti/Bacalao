@@ -1,24 +1,15 @@
-
-.Edit {
-    width: 100vw;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    overflow-y: scroll;
-    position: absolute;
-    top: 0;
+.Edit .App-logo-name {
+    margin-top: 50px;
 }
 
-.Edit .content-screen {
-    width: 100vw;
-    overflow-y: scroll;
-    position: absolute;
-    top: 0;
-}
-
-.Edit h3 {
+h3 {
     font-weight: 300;
     text-transform: capitalize;
+}
+
+form#edit-form {
+    min-width: 70vw;
+    max-width: 90vw;
 }
 
 .buttons-bottom-section {
@@ -295,18 +286,16 @@ label.checkbox-photo p {
 
 @media only screen and (min-width: 900px) {
 
-    .Edit .content-screen {
-        max-width: calc(100vw - var(--navbar-tablet-width ) - 2vw);
-        width: calc(100vw - var(--navbar-tablet-width ));
+    form#edit-form {
+        max-width: calc(90vw - var(--navbar-tablet-width ));
     }
   
 }
   
 @media only screen and (min-width: 1100px) {
-    .Edit .content-screen {
-        max-width: calc(100vw - var(--navbar-desktop-width ) - 2vw);
-        width: calc(100vw - var(--navbar-desktop-width ));
+
+    form#edit-form {
+        max-width: calc(90vw - var(--navbar-desktop-width ));
     }
-  
 }
 

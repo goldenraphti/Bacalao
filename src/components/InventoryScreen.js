@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import '../styles/App.css';
 import InventoryCards from './InventoryCards';
-import Navbar from './Navbar';
 import '../styles/Inventory.css';
 
 
@@ -36,7 +35,6 @@ class ConnectedInventoryScreen extends Component {
   render() {
     return (
       <div className="App">
-        <Navbar />
         <div className="content-screen">
           <InventoryCards
             itemType={ this.state.itemType }

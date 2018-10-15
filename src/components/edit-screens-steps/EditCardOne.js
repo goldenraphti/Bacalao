@@ -18,7 +18,7 @@ class EditCardOne extends Component {
                 <div className="card-one">
                     <h3>Select items types</h3>
                     <fieldset className="checkboxes-itemsType">
-                       <label className={this.props.itemsType.includes('shirt') ? "checkbox-button checkbox-icon shirt checked" : "checkbox-button checkbox-icon shirt"}>
+                       <label tabindex="0" className={this.props.itemsType.includes('shirt') ? "checkbox-button checkbox-icon shirt checked" : "checkbox-button checkbox-icon shirt"}>
                             <p>shirt</p>
                             <input
                                 name="shirt"
@@ -26,7 +26,7 @@ class EditCardOne extends Component {
                                 checked={this.props.itemsType.includes('shirt')}
                                 onChange={this.props.handleInputChange} />
                         </label>
-                        <label className={this.props.itemsType.includes('totebag') ? "checkbox-button checkbox-icon totebag checked" : "checkbox-button checkbox-icon totebag"}>
+                        <label tabindex="0" className={this.props.itemsType.includes('totebag') ? "checkbox-button checkbox-icon totebag checked" : "checkbox-button checkbox-icon totebag"}>
                             <p>totebag</p>
                             <input
                                 name="totebag"

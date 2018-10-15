@@ -4,7 +4,6 @@ import '../styles/App.css';
 import '../styles/Logs.css';
 import LogsPreviewList from './logs-components/LogsPreviewList';
 import LogDisplayed from './logs-components/LogDisplayed';
-import Navbar from './Navbar';
 
 const mapStateToProps = (state) => {
   console.log('state.logs', state.logs);
@@ -72,7 +71,6 @@ class ConnectedLogsScreen extends Component {
     return (
 
       <div className="App log-screen">
-        <Navbar />
         <div className="content-screen log-screen-content">
           { this.state.windowWidth < 900 && this.state.logDisplayed !== null ? null : <LogsPreviewList
             {...this.props}

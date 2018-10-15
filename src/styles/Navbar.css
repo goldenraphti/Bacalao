@@ -6,9 +6,7 @@ nav {
     background-color: #fff;
     box-shadow: 0 -7px 6px -6px var(--medium-grey);
     height: var(--navbar-mobile-height);
-    width: 100vw;
     display: flex;
-    position: sticky;
     bottom: 0;
     margin: 0;
     padding: 0;

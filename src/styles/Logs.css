@@ -113,15 +113,17 @@ button.card-preview-button {
     justify-content: flex-start;
     align-items: center;
     top:0;
-    overflow-y: scroll;
+    /* overflow-y: scroll;
+    overflow-x: hidden; */
 }
 
 .displayed-card {
-    width: 100vw;
+    width: 95vw;
     color: var(--medium-grey);
     font-family: 'PT Sans', sans-serif;
     font-weight: 700;
     font-size: 0.8em;
+
 }
 
 .log-displayed-title {
@@ -257,6 +259,7 @@ ul.product-sizes {
         z-index: 1;
         max-height: 100vh;
         margin-bottom: 0px;
+        left: var(--navbar-tablet-width);
     }
 
     .LogDisplayed {
@@ -285,6 +288,10 @@ ul.product-sizes {
 
     .log-screen .content-screen {
         margin-left: var(--navbar-desktop-width);
+    }
+
+    .LogsPreviewList {
+        left: var(--navbar-desktop-width);
     }
 
     .LogDisplayed {

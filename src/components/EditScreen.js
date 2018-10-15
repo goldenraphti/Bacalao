@@ -4,8 +4,6 @@ import { connect } from "react-redux";
 import uuidv1 from "uuid";
 import {  addItems, removeItems, logChange } from "../actions/actionCreators";
 import '../styles/Form.css';
-import store from "../store";
-import Navbar from './Navbar';
 import EditCardOne from './edit-screens-steps/EditCardOne';
 import EditCardTwo from './edit-screens-steps/EditCardTwo';
 import EditCardThree from './edit-screens-steps/EditCardThree';
@@ -152,7 +150,6 @@ class ConnectedEditScreen extends Component {
 
         return (
             <div className="App Edit">
-                <Navbar />
                 <div className="content-screen">
                     <img className='App-logo-name' src={require('../assets/bacalao-logo-with-name.svg')} alt="" />
                     <form id='edit-form' className='card-shadow card'  onSubmit={this.handleSubmit}>
@@ -178,6 +175,8 @@ class ConnectedEditScreen extends Component {
             );
         }
     }
+
+    // TODO: add eventlistener on labels for using labels for aria when hit Space
 
 /* Side note:
  the first argument for connect must be null when mapStateToProps is absent

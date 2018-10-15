@@ -1,13 +1,11 @@
 import React, { Component } from 'react';
 import '../styles/App.css';
-import Navbar from './Navbar';
 
 
 class App extends Component {
   render() {
     return (
       <div className="App">
-        <Navbar />
         <div className="content-screen main">
 
           <img className='App-logo' src={require('../assets/bacalao-logo.svg')} alt="" />
