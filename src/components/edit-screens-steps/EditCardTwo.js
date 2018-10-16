@@ -19,7 +19,7 @@ class EditCardTwo extends Component {
                        {this.props.inventory.filter(product => this.props.itemsType.includes(product.type)).map(product => (
                             <label
                             key={product.id}
-                            tabindex="0"
+                            tabIndex="0"
                             className={this.props.selectedProducts.includes(product.id) ? `checkbox-button checkbox-photo img${product.id} checked` : `checkbox-button checkbox-photo img${product.id}`}>
                                 <p>{product.type}-{product.name}</p>
                                 <input

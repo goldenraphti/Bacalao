@@ -6,25 +6,27 @@ class EditProgressBar extends Component {
 
 
     componentDidMount() {
+        console.log(this.props.cardToDisplay);
+        console.log(this.props.cardToDisplay.name);
+        console.log(this.props.cardToDisplay.name !== "EditCardSuccess");
     }
 
     componentWillUnmount() {
     }
 
     render() {
+
+        let iconFinalStep = this.props.cardToDisplay.name != "EditCardSuccess" ? 'liftoff' : 'rocket';
         
         return (
-                <div class="progress-bar-container">
+                <div className="progress-bar-container">
                     <div className="progress-bar progress-bar-background">
                     </div>
                     <div className="progress-bar progress-bar-20">
                     </div>
-    
-                        <div className="progress-step step-one step-activated"></div>
-                        <div className="progress-step step-two"></div>
-                        <div className="progress-step step-three"></div>
-                        <div className="progress-step step-four"></div>
-                        <div className="progress-step step-success"></div>
+                    <div className="end-progressbar">
+                        <img className='' src={require(`../../assets/${iconFinalStep}.svg`)} alt="" />
+                    </div>
                 </div>
 
         );
