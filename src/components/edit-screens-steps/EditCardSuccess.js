@@ -8,7 +8,7 @@ class EditCardSuccess extends Component {
         
         return (
             <div className="card-success">
-                <h3>Report successfully made</h3>
+                <h3>Report successfully submitted !</h3>
             </div>
         );
     }
