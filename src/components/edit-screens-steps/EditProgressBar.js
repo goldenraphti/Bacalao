@@ -7,8 +7,9 @@ class EditProgressBar extends Component {
 
     componentDidMount() {
         console.log(this.props.cardToDisplay);
-        console.log(this.props.cardToDisplay.name);
-        console.log(this.props.cardToDisplay.name !== "EditCardSuccess");
+        console.log(this.props.screen);
+        console.log(this.props.screen !== "EditCardSuccess");
+        console.log('progressbar', this.props.screen);
     }
 
     componentWillUnmount() {
@@ -16,23 +17,23 @@ class EditProgressBar extends Component {
 
     render() {
 
-        const cardToDisplay = this.props.cardToDisplay;
+        const screen = this.props.screen;
 
         const formProgression = () => {
-            if (cardToDisplay.name == "EditCardOne") {
+            if (screen == 1) {
                 return '0';
-            } else if (cardToDisplay.name == "EditCardTwo") {
+            } else if (screen == 2) {
                 return '20';
-            } else if (cardToDisplay.name == "EditCardThree") {
+            } else if (screen == 3) {
                 return '40';
-            } else if (cardToDisplay.name == "EditCardFour") {
+            } else if (screen == 4) {
                 return '60';
-            } else if (cardToDisplay.name == "EditCardSuccess") {
+            } else if (screen == "success") {
                 return '80';
             }
         }
 
-        let iconFinalStep = cardToDisplay.name != "EditCardSuccess" ? 'liftoff-light-dark-grey' : 'rocket-palette-1-3';
+        let iconFinalStep = screen != "success" ? 'liftoff-light-dark-grey' : 'rocket-palette-1-3';
         
         return (
                 <div className="progress-bar-container">

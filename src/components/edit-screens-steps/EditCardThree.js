@@ -7,7 +7,7 @@ class EditCardThree extends Component {
     render() {
 
         return (
-            <div className="card-three">
+            <div className={this.props.screen === 3 ? "card-three" : "hidden" }>
                 <h3>Sizes and quantities</h3>
                 
                 <fieldset action="" className="products-sizes">

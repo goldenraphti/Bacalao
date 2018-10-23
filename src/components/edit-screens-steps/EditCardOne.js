@@ -15,7 +15,7 @@ class EditCardOne extends Component {
     render() {
         
         return (
-                <div className="card-one">
+                <div className={this.props.screen === 1 ? "card-one" : "hidden" }>
                     <h3>Select items types</h3>
                     <fieldset className="checkboxes-itemsType">
                        <label tabIndex="0" className={this.props.itemsType.includes('shirt') ? "checkbox-button checkbox-icon shirt checked" : "checkbox-button checkbox-icon shirt"}>

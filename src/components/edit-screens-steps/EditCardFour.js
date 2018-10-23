@@ -7,7 +7,7 @@ class EditCardFour extends Component {
     render() {
         
         return (
-            <div className="card-four">
+            <div className={this.props.screen === 4 ? "card-four" : "hidden" }>
                 <h3>Name and comments</h3>
 
                 <div className="card-four-inputs">

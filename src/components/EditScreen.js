@@ -42,6 +42,7 @@ class ConnectedEditScreen extends Component {
             comments: '',
             user: '',
             cardToDisplay: EditCardOne,
+            screen: 1,
             selectedProducts: [],
         };
         this.handleChange = this.handleChange.bind(this);
@@ -117,7 +118,7 @@ class ConnectedEditScreen extends Component {
 
         this.props.logChange(objectToSend);
 
-        this.setState({cardToDisplay: EditCardSuccess})
+        this.setState({screen: "success"})
         
         // reset the state form values
         // this.setState({...defaultStateResetForm});
@@ -127,30 +128,21 @@ class ConnectedEditScreen extends Component {
     }
 
     // takes the current screen-card, hides it and displays the next screen-card
-    nextScreen(currentCard) {
-        if (currentCard === EditCardOne) {
-            this.setState({cardToDisplay: EditCardTwo})
-        } else if (currentCard === EditCardTwo) {
-            this.setState({cardToDisplay: EditCardThree})
-        } else if (currentCard === EditCardThree) {
-            this.setState({cardToDisplay: EditCardFour})
-        }
+    nextScreen(currentScreen) {
+        let nextScreen = currentScreen++;
+        this.setState({screen: currentScreen ++})
     }
     // when clicked previous step button at bottom of edit form card
-    previousScreen(currentCard) {
-        if (currentCard === EditCardTwo) {
-            this.setState({cardToDisplay: EditCardOne})
-        } else if (currentCard === EditCardThree) {
-            this.setState({cardToDisplay: EditCardTwo})
-        } else if (currentCard === EditCardFour) {
-            this.setState({cardToDisplay: EditCardThree})
-        }
+    previousScreen(currentScreen) {
+        let previousScreen = currentScreen--;
+        this.setState({screen: currentScreen --})
     }
 
     render() {
 
-        const buttonNext = <button type="button" className={ this.state.cardToDisplay === EditCardFour ? "hidden" : null } placeholder=""  onClick={() => this.nextScreen(this.state.cardToDisplay)} >Next<span className="next-arrow moving-arrow">〉</span></button>;
-        const buttonSubmit = <button type="submit" className={ this.state.cardToDisplay !== EditCardFour ? "hidden" : null }>submit</button>
+        const buttonPrevious = <button type="button" className={ this.state.screen === 1 || this.state.screen === 4 ? "hidden" : "previous-button" } placeholder=""  onClick={() => this.previousScreen(this.state.screen)} > <span className="previous-arrow moving-arrow">〈</span>Previous</button>;
+        const buttonNext = <button type="button" className={ this.state.screen === 4 ? "hidden" : null } placeholder=""  onClick={() => this.nextScreen(this.state.screen)} >Next<span className="next-arrow moving-arrow">〉</span></button>;
+        const buttonSubmit = <button type="submit" className={ this.state.screen !== 4 ? "hidden" : null }>submit</button>
 
         return (
             <div className="App Edit">
@@ -161,18 +153,43 @@ class ConnectedEditScreen extends Component {
                     {...this.props}
                     {...this.state}
                     />
-                    <this.state.cardToDisplay
+                    <EditCardOne
                     {...this.props}
                     {...this.state}
                     handleChange = {this.handleChange}
                     handleInputChange = {this.handleInputChange}
                     />
+                    <EditCardTwo
+                    {...this.props}
+                    {...this.state}
+                    handleChange = {this.handleChange}
+                    handleInputChange = {this.handleInputChange}
+                    />
+                    <EditCardThree
+                    {...this.props}
+                    {...this.state}
+                    handleChange = {this.handleChange}
+                    handleInputChange = {this.handleInputChange}
+                    />
+                    <EditCardFour
+                    {...this.props}
+                    {...this.state}
+                    handleChange = {this.handleChange}
+                    handleInputChange = {this.handleInputChange}
+                    />
+                    <EditCardSuccess
+                    {...this.props}
+                    {...this.state}
+                    handleChange = {this.handleChange}
+                    handleInputChange = {this.handleInputChange}
+                    />
+
                     { this.state.cardToDisplay === EditCardSuccess ? null :
                     <div className="buttons-bottom-section">
                         <a href="" className="form-cancel-link" onClick={() => this.resetForm()}>Cancel</a>
                         {/* When submitting make sure every input is filled, and hopefully make sure that the same user did not send a change for the same item && size */}
                         <div className="form-navigation">
-                            { this.state.cardToDisplay === EditCardOne ? null : <a href="" className="form-previous-step" onClick={() => this.previousScreen(this.state.cardToDisplay)} ><span className="previous-arrow moving-arrow">〈</span>Previous</a>}
+                            {buttonPrevious}
                             {buttonNext}
                             {buttonSubmit}
                         </div>

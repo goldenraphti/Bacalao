@@ -12,7 +12,7 @@ class EditCardTwo extends Component {
     render() {
         
         return (
-            <div className="card-two">
+            <div className={this.props.screen === 2 ? "card-two" : "hidden" }>
                 <h3>Select products</h3>
                 
                 <fieldset className="checkboxes-productsSelected">

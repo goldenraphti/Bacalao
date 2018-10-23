@@ -7,7 +7,7 @@ class EditCardSuccess extends Component {
     render() {
         
         return (
-            <div className="card-success">
+            <div className={this.props.screen === "success" ? "card-success" : "hidden"} >
                 <h3>Report successfully submitted !</h3>
             </div>
         );

@@ -27,6 +27,16 @@ form#edit-form {
     font-size: 0.9em;
 }
 
+button.previous-button {
+    background: none;
+    border: none;
+    color: var(--medium-grey);
+}
+
+button.previous-button:hover {
+    color: var(--dark-grey);
+}
+
 .moving-arrow {
     font-weight: 300;
     font-size: 1.3em;
